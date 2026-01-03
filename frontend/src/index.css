@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-inter: "Inter", "sans-serif";
+
+  --color-gray: #F5F5F5;
+  --color-light-gray: #F9FAFB;
+  --color-border: #E3E3E3;
+
+  --color-light: #fff;
+  --color-dark: #868686;
+  --color-darker: #6A6A6A;
+  --color-darkest: #2B2B2B;
+
+  --color-red: #EF4444;
+  --color-light-red: #FEE2E2;
+  --color-yellow: #EAB308;
+  --color-light-yellow: #FEF3C7;
+  --color-green: #22C55E;
+  --color-light-green: #DCFCE7;
+  --color-blue: #1E40AF;
+  --color-light-blue: #DBEAFE;
+  --color-violet: #5B21B6;
+  --color-light-violet: #EDE9FE;
+
+  --color-primary: var(--color-blue);
+  --color-light-primary: var(--color-light-blue);
+}
+
+@layer base {
+  body {
+    @apply font-inter text-darkest;
+  }
+
+  ul,
+  li {
+    @apply list-none;
+  }
+
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+
+  thead {
+    @apply sticky top-0 bg-light shadow-[0_1px_0_var(--color-border)];
+  }
+
+  th {
+    @apply text-start text-base font-semibold text-primary px-2 pb-[20px];
+  }
+
+  th.total {
+    @apply pt-[20px] pb-0;
+  }
+
+  td {
+    @apply text-base py-[15px] px-2;
+  }
+
+  hr {
+    @apply border-border;
+  }
+
+  table {
+    @apply border-collapse w-full [&_th:last-child]:w-0 [&_th:last-child]:whitespace-nowrap [&_td:last-child]:w-0 [&_td:last-child]:whitespace-nowrap
+    /* divide-y divide-border */
+    ;
+  }
+
+  .withOptions:has(th:nth-child(3)) th:nth-last-child(2),
+  .withOptions:has(th:nth-child(3)) td:nth-last-child(2) {
+    @apply w-0 whitespace-nowrap;
+  }
+
+  input[type='text'] {
+    @apply focus:outline-none;
+  }
+
+  input[type='checkbox'] {
+    @apply appearance-none w-5 h-5 rounded border border-dark bg-gray checked:bg-gray checked:border-primary checked:after:content-['✔'] checked:after:text-primary checked:after:text-sm checked:after:leading-4 checked:after:text-center flex items-center justify-center;
+  }
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px --color-gray inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+
+  input[type="file"] {
+    font-family: inherit;
+    color: var(--color-darker);
+  }
+
+  /* style the "Choose File" button part */
+  input[type="file"]::file-selector-button {
+    background-color: #e0e0e0;
+    padding: 3px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  /* hover effect */
+  input[type="file"]::file-selector-button:hover {
+    background-color: #d0d0d0;
+  }
+}
+
+@layer components {
+  .single-main-section {
+    @apply grid gap-5 overflow-y-hidden min-h-[500px] content-start;
+  }
+
+  .card {
+    @apply border-[1px] border-border rounded-[15px] bg-light p-5;
+  }
+
+  .table-section {
+    @apply py-[20px] flex flex-col flex-1 overflow-y-auto;
+  }
+
+  .table-container {
+    @apply mx-[20px];
+    scrollbar-width: thin;
+    /* makes it thinner */
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    /* For Firefox */
+  }
+
+  /* .table-container.label {
+    @apply ;
+  } */
+
+  .table-container.main {
+    @apply overflow-y-auto;
+  }
+
+  .table-container::-webkit-scrollbar {
+    width: 6px;
+    /* scrollbar width */
+    height: 6px;
+    /* scrollbar height for horizontal scroll */
+  }
+
+  .table-container::-webkit-scrollbar-track {
+    background: transparent;
+    /* track background */
+  }
+
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* thumb color */
+    border-radius: 10px;
+    /* rounded */
+  }
+
+
+  .shadow-top {
+    @apply shadow-[0_-1px_0_var(--color-border)];
+  }
+
+  .shadow-bottom {
+    @apply shadow-[0_1px_0_var(--color-border)];
+  }
+
+
+  .border-all {
+    @apply border-[1px] border-border;
+  }
+
+  .border-l {
+    @apply border-l-[1px] border-border;
+  }
+
+  .border-r {
+    @apply border-r-[1px] border-border;
+  }
+
+  .border-t {
+    @apply border-t-[1px] border-border;
+  }
+
+  .border-b {
+    @apply border-b-[1px] border-border;
+  }
+
+
+  .btn {
+    @apply text-base rounded-[8px] cursor-pointer;
+  }
+
+
+  .input-container {
+    @apply py-[5px] rounded-[8px] bg-gray text-dark outline-none text-base;
+  }
+
+  .input {
+    @apply focus:outline-none px-[8px] text-darker w-full;
+  }
+
+  .modal {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] max-w-[1100px] max-h-[80dvh] flex flex-col z-50;
+  }
+
+  .backdrop {
+    @apply h-full w-full z-10 bg-darkest/20 backdrop-blur-[1px] fixed left-0 top-0;
+  }
+
+  .fields {
+    @apply overflow-y-auto flex-1;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  }
+
+}
+
+@layer utilities {
+  .align-items-start {
+    align-items: start;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+  }
+
+  .thin-scrollbar {
+    scrollbar-width: thin;
+    /* makes it thinner */
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    /* For Firefox */
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    /* scrollbar width */
+    height: 6px;
+    /* scrollbar height for horizontal scroll */
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    /* track background */
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* thumb color */
+    border-radius: 10px;
+    /* rounded */
+  }
+
+  .hide-spinner::-webkit-inner-spin-button,
+  .hide-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    /* For Chrome, Safari, Edge, Opera */
+  }
+
+  .hide-spinner {
+    -moz-appearance: textfield;
+    /* For Firefox */
+  }
+
+  .dark-calendar::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.5);
+  }
+
+  .hide-calendar::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+
+  .date-icon {
+    position: absolute;
+    opacity: 100;
+    pointer-events: none;
+  }
+
+  .date-icon::-webkit-calendar-picker-indicator {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Hide native select dropdown arrow */
+  .hide-select-icon {
+    -webkit-appearance: none;
+    /* Safari/Chrome */
+    -moz-appearance: none;
+    /* Firefox */
+    appearance: none;
+    /* Standard */
+    background: none;
+    /* Remove default background */
+  }
+
+  /* Optional: remove extra padding on the right */
+  .hide-select-icon::-ms-expand {
+    display: none;
+    /* IE/Edge */
+  }
+}
+
+/* @layer utilities {
+
+  .bg-light-red    { background-color: var(--color-light-red); }
+  .bg-light-yellow { background-color: var(--color-light-yellow); }
+  .bg-light-green  { background-color: var(--color-light-green); }
+  .bg-light-blue   { background-color: var(--color-light-blue); }
+  .bg-light-violet { background-color: var(--color-light-violet); }
+  .bg-light-gray   { background-color: var(--color-light-gray); }
+  .bg-light        { background-color: var(--color-light); }
+
+
+  .bg-red    { background-color: var(--color-red); }
+  .bg-yellow { background-color: var(--color-yellow); }
+  .bg-green  { background-color: var(--color-green); }
+  .bg-blue   { background-color: var(--color-blue); }
+  .bg-violet { background-color: var(--color-violet); }
+  .bg-gray   { background-color: var(--color-gray); }
+  .bg-dark   { background-color: var(--color-dark); }
+  .bg-darker { background-color: var(--color-darker); }
+  .bg-darkest { background-color: var(--color-darkest); }
+
+
+  .border-border    { border-color: var(--color-border); }
+  .border-l-border { border-left-color: var(--color-border); }
+  .border-l-red    { border-left-color: var(--color-red); }
+  .border-l-yellow { border-left-color: var(--color-yellow); }
+  .border-l-green  { border-left-color: var(--color-green); }
+  .border-l-blue   { border-left-color: var(--color-blue); }
+  .border-l-violet { border-left-color: var(--color-violet); }
+} */

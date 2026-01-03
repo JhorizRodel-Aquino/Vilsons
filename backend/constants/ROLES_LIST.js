@@ -1,0 +1,9 @@
+const ROLES_LIST = {
+  SUPERADMIN: "_SUPERADMIN_",
+  ADMIN: "_ADMIN_",
+  EMPLOYEE: "_EMPLOYEE_",
+  CONTRACTOR: "_CONTRACTOR_",
+  CUSTOMER: "_CUSTOMER_",
+};
+
+module.exports = ROLES_LIST;

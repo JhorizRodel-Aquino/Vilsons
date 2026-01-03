@@ -1,0 +1,1802 @@
+20250825	19:44:27	68f7b755-8edd-44d2-b934-b6997860e65b	PrismaClientValidationError: 
+Invalid `prisma.user.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\registerController.js:13:39
+
+  10     'message': "Name, username, email and password are required",
+  11   });
+  12 
+→ 13 const duplicate = await prisma.user.findFirst({
+       where: {
+         OR: [
+           {
+             username: "kinli12"
+           },
+           {
+             email: "kin@gmail.com"
+           }
+         ]
+       }
+     })
+
+Unknown argument `username`. Available options are marked with ?.
+20250825	19:47:49	bc166cfd-19e4-4da2-af24-15a1d2ca335b	PrismaClientValidationError: 
+Invalid `prisma.user.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\registerController.js:12:39
+
+   9     'message': "Name, username, email and password are required",
+  10   });
+  11 
+→ 12 const duplicate = await prisma.user.findFirst({
+       where: {
+         OR: [
+           {
+             username: "kinli12"
+           },
+           {
+             email: "kin@gmail.com"
+           }
+         ]
+       }
+     })
+
+Unknown argument `username`. Available options are marked with ?.
+20250827	19:59:19	3729add0-058f-4b89-b54c-715c918fc56e	TypeError: Cannot read properties of undefined (reading 'findFirst')
+20250827	21:22:04	40f5db56-87ad-459f-8b3d-7626f9873cb9	ReferenceError: Cannot access 'user' before initialization
+20250827	21:22:35	c14e25cc-bd10-4686-ba3a-8d30fd32073d	PrismaClientValidationError: 
+Invalid `prisma.user.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\userController.js:82:34
+
+  79   approvalStatus,
+  80 } = req.body;
+  81 
+→ 82 const user = await prisma.user.findFirst({
+       id: "05619ec0-1f25-4dc4-8d22-560a799143bc",
+       ~~
+     ? where?: UserWhereInput,
+     ? orderBy?: UserOrderByWithRelationInput[] | UserOrderByWithRelationInput,
+     ? cursor?: UserWhereUniqueInput,
+     ? take?: Int,
+     ? skip?: Int,
+     ? distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+     })
+
+Unknown argument `id`. Did you mean `skip`? Available options are marked with ?.
+20250827	21:32:29	34d5222c-350a-4f95-aa3e-9c6f9e6a248b	SyntaxError: Expected double-quoted property name in JSON at position 79 (line 4 column 1)
+20250830	13:15:37	2ba19a64-8e96-4993-9457-503abfb35f92	ReferenceError: error is not defined
+20250830	15:33:00	8f96bd46-4289-4fc7-8e69-94fbddac8f12	SyntaxError: Unexpected token 'J', ...""module": Job_Orders"... is not valid JSON
+20250902	12:56:46	daf998ce-0214-48c6-b51a-06b17ca3a7d3	ReferenceError: user is not defined
+20250902	12:57:29	748f8eda-3e21-46f0-a994-62d5442db0f7	ReferenceError: user is not defined
+20250902	13:12:32	6ae0359c-aca0-4000-bec5-103eb4972c3b	TypeError: Cannot read properties of undefined (reading 'name')
+20250902	13:12:50	231668d9-e7c3-4725-a4be-9a6c40cbb981	TypeError: Cannot read properties of undefined (reading 'roleName')
+20250902	15:12:07	d02606a7-957c-49b9-87e5-d43e7582c540	PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\refreshController.js:11:39
+
+   8 if (!refreshToken)
+   9   return res.status(401).json({ message: "No cookies found" });
+  10 
+→ 11 const foundUser = await prisma.user.findUnique({
+       where: {
+         refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMGZiMTBkLTM2YWUtNDBmMy05MWI0LTg0MzQ2YWJkNzVkMiIsImlhdCI6MTc1Njc5NDU2MCwiZXhwIjoxNzU2ODgwOTYwfQ.hqjotYOY0N1EaxopSdf47-Z_A1kGrU6ZwLRv_9T7AtQ",
+     ?   id?: String,
+     ?   username?: String,
+     ?   email?: String,
+     ?   AND?: UserWhereInput | UserWhereInput[],
+     ?   OR?: UserWhereInput[],
+     ?   NOT?: UserWhereInput | UserWhereInput[],
+     ?   fullName?: StringFilter | String,
+     ?   phone?: StringFilter | String,
+     ?   hashPwd?: StringFilter | String,
+     ?   description?: StringNullableFilter | String | Null,
+     ?   approvalStatus?: EnumApprovalStatusFilter | ApprovalStatus,
+     ?   createdAt?: DateTimeFilter | DateTime,
+     ?   createdById?: StringNullableFilter | String | Null,
+     ?   updatedAt?: DateTimeFilter | DateTime,
+     ?   updatedById?: StringNullableFilter | String | Null,
+     ?   admin?: AdminListRelationFilter,
+     ?   customer?: CustomerListRelationFilter,
+     ?   contractor?: ContractorListRelationFilter,
+     ?   employee?: EmployeeListRelationFilter,
+     ?   activityLog?: ActivityLogListRelationFilter,
+     ?   roles?: UserRoleListRelationFilter,
+     ?   edits?: UserEditListRelationFilter,
+     ?   createdUsers?: UserListRelationFilter,
+     ?   createdUserEdit?: UserEditListRelationFilter,
+     ?   createdRole?: RoleListRelationFilter,
+     ?   createdBranches?: BranchListRelationFilter,
+     ?   createdBranchEdit?: BranchEditListRelationFilter,
+     ?   createdTrucks?: TruckListRelationFilter,
+     ?   createdTransaction?: TransactionListRelationFilter,
+     ?   createdTransactionEdit?: TransactionEditListRelationFilter,
+     ?   createdJobOrder?: JobOrderListRelationFilter,
+     ?   createdJobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   transferredTruckOwnership?: TruckOwnershipListRelationFilter,
+     ?   updatedUserEdits?: UserEditListRelationFilter,
+     ?   updatedBranches?: BranchListRelationFilter,
+     ?   updatedBranchEdits?: BranchEditListRelationFilter,
+     ?   updatedTransaction?: TransactionListRelationFilter,
+     ?   updatedTransactionEdit?: TransactionEditListRelationFilter,
+     ?   updatedJobOrder?: JobOrderListRelationFilter,
+     ?   updatedJobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   createdBy?: UserNullableScalarRelationFilter | UserWhereInput | Null
+       },
+       include: {
+         roles: {
+           include: {
+             role: true
+           }
+         }
+       }
+     })
+
+Argument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.
+20250902	15:12:43	24adffc6-da35-49bc-ace1-64971bbfb3a6	PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\refreshController.js:11:39
+
+   8 if (!refreshToken)
+   9   return res.status(401).json({ message: "No cookies found" });
+  10 
+→ 11 const foundUser = await prisma.user.findUnique({
+       where: {
+         refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMGZiMTBkLTM2YWUtNDBmMy05MWI0LTg0MzQ2YWJkNzVkMiIsImlhdCI6MTc1Njc5NDU2MCwiZXhwIjoxNzU2ODgwOTYwfQ.hqjotYOY0N1EaxopSdf47-Z_A1kGrU6ZwLRv_9T7AtQ",
+     ?   id?: String,
+     ?   username?: String,
+     ?   email?: String,
+     ?   AND?: UserWhereInput | UserWhereInput[],
+     ?   OR?: UserWhereInput[],
+     ?   NOT?: UserWhereInput | UserWhereInput[],
+     ?   fullName?: StringFilter | String,
+     ?   phone?: StringFilter | String,
+     ?   hashPwd?: StringFilter | String,
+     ?   description?: StringNullableFilter | String | Null,
+     ?   approvalStatus?: EnumApprovalStatusFilter | ApprovalStatus,
+     ?   createdAt?: DateTimeFilter | DateTime,
+     ?   createdById?: StringNullableFilter | String | Null,
+     ?   updatedAt?: DateTimeFilter | DateTime,
+     ?   updatedById?: StringNullableFilter | String | Null,
+     ?   admin?: AdminListRelationFilter,
+     ?   customer?: CustomerListRelationFilter,
+     ?   contractor?: ContractorListRelationFilter,
+     ?   employee?: EmployeeListRelationFilter,
+     ?   activityLog?: ActivityLogListRelationFilter,
+     ?   roles?: UserRoleListRelationFilter,
+     ?   edits?: UserEditListRelationFilter,
+     ?   createdUsers?: UserListRelationFilter,
+     ?   createdUserEdit?: UserEditListRelationFilter,
+     ?   createdRole?: RoleListRelationFilter,
+     ?   createdBranches?: BranchListRelationFilter,
+     ?   createdBranchEdit?: BranchEditListRelationFilter,
+     ?   createdTrucks?: TruckListRelationFilter,
+     ?   createdTransaction?: TransactionListRelationFilter,
+     ?   createdTransactionEdit?: TransactionEditListRelationFilter,
+     ?   createdJobOrder?: JobOrderListRelationFilter,
+     ?   createdJobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   transferredTruckOwnership?: TruckOwnershipListRelationFilter,
+     ?   updatedUserEdits?: UserEditListRelationFilter,
+     ?   updatedBranches?: BranchListRelationFilter,
+     ?   updatedBranchEdits?: BranchEditListRelationFilter,
+     ?   updatedTransaction?: TransactionListRelationFilter,
+     ?   updatedTransactionEdit?: TransactionEditListRelationFilter,
+     ?   updatedJobOrder?: JobOrderListRelationFilter,
+     ?   updatedJobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   createdBy?: UserNullableScalarRelationFilter | UserWhereInput | Null
+       },
+       include: {
+         roles: {
+           include: {
+             role: true
+           }
+         }
+       }
+     })
+
+Argument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.
+20250902	15:12:59	5c59814c-9e67-4917-94ff-44e27ba24e1e	PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\refreshController.js:11:39
+
+   8 if (!refreshToken)
+   9   return res.status(401).json({ message: "No cookies found" });
+  10 
+→ 11 const foundUser = await prisma.user.findUnique({
+       where: {
+         refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMGZiMTBkLTM2YWUtNDBmMy05MWI0LTg0MzQ2YWJkNzVkMiIsImlhdCI6MTc1Njc5NDU2MCwiZXhwIjoxNzU2ODgwOTYwfQ.hqjotYOY0N1EaxopSdf47-Z_A1kGrU6ZwLRv_9T7AtQ",
+     ?   id?: String,
+     ?   username?: String,
+     ?   email?: String,
+     ?   AND?: UserWhereInput | UserWhereInput[],
+     ?   OR?: UserWhereInput[],
+     ?   NOT?: UserWhereInput | UserWhereInput[],
+     ?   fullName?: StringFilter | String,
+     ?   phone?: StringFilter | String,
+     ?   hashPwd?: StringFilter | String,
+     ?   description?: StringNullableFilter | String | Null,
+     ?   approvalStatus?: EnumApprovalStatusFilter | ApprovalStatus,
+     ?   createdAt?: DateTimeFilter | DateTime,
+     ?   createdById?: StringNullableFilter | String | Null,
+     ?   updatedAt?: DateTimeFilter | DateTime,
+     ?   updatedById?: StringNullableFilter | String | Null,
+     ?   admin?: AdminListRelationFilter,
+     ?   customer?: CustomerListRelationFilter,
+     ?   contractor?: ContractorListRelationFilter,
+     ?   employee?: EmployeeListRelationFilter,
+     ?   activityLog?: ActivityLogListRelationFilter,
+     ?   roles?: UserRoleListRelationFilter,
+     ?   edits?: UserEditListRelationFilter,
+     ?   createdUsers?: UserListRelationFilter,
+     ?   createdUserEdit?: UserEditListRelationFilter,
+     ?   createdRole?: RoleListRelationFilter,
+     ?   createdBranches?: BranchListRelationFilter,
+     ?   createdBranchEdit?: BranchEditListRelationFilter,
+     ?   createdTrucks?: TruckListRelationFilter,
+     ?   createdTransaction?: TransactionListRelationFilter,
+     ?   createdTransactionEdit?: TransactionEditListRelationFilter,
+     ?   createdJobOrder?: JobOrderListRelationFilter,
+     ?   createdJobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   transferredTruckOwnership?: TruckOwnershipListRelationFilter,
+     ?   updatedUserEdits?: UserEditListRelationFilter,
+     ?   updatedBranches?: BranchListRelationFilter,
+     ?   updatedBranchEdits?: BranchEditListRelationFilter,
+     ?   updatedTransaction?: TransactionListRelationFilter,
+     ?   updatedTransactionEdit?: TransactionEditListRelationFilter,
+     ?   updatedJobOrder?: JobOrderListRelationFilter,
+     ?   updatedJobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   createdBy?: UserNullableScalarRelationFilter | UserWhereInput | Null
+       },
+       include: {
+         roles: {
+           include: {
+             role: true
+           }
+         }
+       }
+     })
+
+Argument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.
+20250902	15:34:56	3ec6b377-830d-4678-bc56-abc70e24a178	TypeError: Cannot read properties of undefined (reading 'map')
+20250902	15:35:44	973640f1-62a0-4f01-8bfe-60892ec798f7	TypeError: Cannot read properties of undefined (reading 'map')
+20250902	21:48:51	8fb12961-bacd-46aa-8106-56484ce3e919	PrismaClientValidationError: 
+Invalid `prisma.user.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\logoutController.js:10:39
+
+   7 if (!cookies?.jwt) return res.sendStatus(204); //no content
+   8 const refreshToken = cookies.jwt;
+   9 
+→ 10 const foundUser = await prisma.user.findFirst({
+       refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkMGZiMTBkLTM2YWUtNDBmMy05MWI0LTg0MzQ2YWJkNzVkMiIsImlhdCI6MTc1NjgyMDkxNSwiZXhwIjoxNzU2OTA3MzE1fQ.2TTjAjrGyzHwPUozegyE57IuCMWl-MXdvMZR-jjFXug",
+       ~~~~~~~~~~~~
+     ? where?: UserWhereInput,
+     ? orderBy?: UserOrderByWithRelationInput[] | UserOrderByWithRelationInput,
+     ? cursor?: UserWhereUniqueInput,
+     ? take?: Int,
+     ? skip?: Int,
+     ? distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+     })
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+20250905	00:55:48	861254d4-2e3f-48b3-84d3-980ad49cb2f4	TypeError: Cannot read properties of undefined (reading 'roleName')
+20250905	01:00:50	3f903e2d-4be3-4610-8d6a-a8fa681f2116	TypeError: Cannot read properties of undefined (reading 'roleName')
+20250905	14:51:42	73b8fe4b-b6be-4f8e-8abd-38f18e509c7d	TypeError: Cannot read properties of undefined (reading 'map')
+20250905	15:02:47	abaa8b57-6561-48d7-9b9b-18202dfb6839	TypeError: Cannot read properties of undefined (reading 'map')
+20250905	16:18:07	d6fdc3b1-87fe-4928-b8bc-147e3e22a8da	SyntaxError: Expected double-quoted property name in JSON at position 67 (line 6 column 1)
+20250905	16:19:58	7188607e-e228-4dbe-9d15-42bd7c51f666	SyntaxError: Expected double-quoted property name in JSON at position 67 (line 5 column 1)
+20250905	16:34:27	01ea031f-4e84-4950-8e38-29d00bc59f00	SyntaxError: Expected double-quoted property name in JSON at position 74 (line 8 column 1)
+20250907	22:14:44	14d731aa-c98d-4382-b981-5dcbac31243d	Error: Invalid old password
+20250907	22:21:06	96a5b828-7455-414a-970d-32282d50cc3c	Error: Invalid old password
+20250911	15:43:54	9cfd1bb8-cd8a-46e5-ba71-d6af13f1c13d	SyntaxError: Expected double-quoted property name in JSON at position 53 (line 3 column 1)
+20250912	20:08:10	8a487d70-ce9e-4a11-9f20-43ad745ca17c	ReferenceError: branchName is not defined
+20250913	19:57:21	0aa21772-9345-43a4-8640-5594534a2cb6	PrismaClientValidationError: 
+Invalid `prisma.branch.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\branchController.js:86:46
+
+  83     .status(404)
+  84     .json({ message: `User with ${req.body.id} not found` });
+  85 
+→ 86 const existingBranch = await prisma.branch.findFirst({
+       where: {
+         name: "yow",
+         ~~~~
+     ?   AND?: BranchWhereInput | BranchWhereInput[],
+     ?   OR?: BranchWhereInput[],
+     ?   NOT?: BranchWhereInput | BranchWhereInput[],
+     ?   id?: StringFilter | String,
+     ?   branchName?: StringFilter | String,
+     ?   description?: StringNullableFilter | String | Null,
+     ?   address?: StringFilter | String,
+     ?   createdAt?: DateTimeFilter | DateTime,
+     ?   createdByUser?: StringFilter | String,
+     ?   updatedAt?: DateTimeFilter | DateTime,
+     ?   updatedByUser?: StringFilter | String,
+     ?   JobOrders?: JobOrderListRelationFilter,
+     ?   OtherIncomes?: OtherIncomeListRelationFilter,
+     ?   Equipments?: EquipmentListRelationFilter,
+     ?   Overheads?: OverheadListRelationFilter,
+     ?   JobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   OtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+     ?   EquipmentEdit?: EquipmentEditListRelationFilter,
+     ?   OverheadExpensesEdit?: OverheadEditListRelationFilter,
+     ?   edits?: BranchEditListRelationFilter,
+     ?   createdBy?: UserScalarRelationFilter | UserWhereInput,
+     ?   updatedBy?: UserScalarRelationFilter | UserWhereInput
+       }
+     })
+
+Unknown argument `name`. Available options are marked with ?.
+20250916	19:34:54	745da7b8-aea6-4e21-bc8e-f9b08e928cc0	PrismaClientValidationError: 
+Invalid `prisma.branch.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:20:49
+
+  17 .status(400)
+  18 .json({ message: "Plate number, make, and model are required" });
+  19 
+→ 20 const existingTruck = await prisma.branch.findUnique({
+       where: "1234"
+              ~~~~~~
+     })
+
+Argument `where`: Invalid value provided. Expected BranchWhereUniqueInput, provided String.
+20250916	19:35:05	7600d325-0fbc-4d49-b327-ae2835bb1724	PrismaClientValidationError: 
+Invalid `prisma.branch.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:20:49
+
+  17 .status(400)
+  18 .json({ message: "Plate number, make, and model are required" });
+  19 
+→ 20 const existingTruck = await prisma.branch.findFirst({
+       where: "1234"
+              ~~~~~~
+     })
+
+Argument `where`: Invalid value provided. Expected BranchWhereInput, provided String.
+20250916	19:36:36	d1782667-e30b-4c68-b64b-f2318aa736a0	PrismaClientValidationError: 
+Invalid `prisma.branch.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:20:45
+
+  17     .status(400)
+  18     .json({ message: "Plate number, make, and model are required" });
+  19 
+→ 20 const existingTruck = await prisma.branch.findFirst({
+       where: {
+         plate: "1234",
+         ~~~~~
+     ?   AND?: BranchWhereInput | BranchWhereInput[],
+     ?   OR?: BranchWhereInput[],
+     ?   NOT?: BranchWhereInput | BranchWhereInput[],
+     ?   id?: StringFilter | String,
+     ?   branchName?: StringFilter | String,
+     ?   description?: StringNullableFilter | String | Null,
+     ?   address?: StringFilter | String,
+     ?   createdAt?: DateTimeFilter | DateTime,
+     ?   createdByUser?: StringFilter | String,
+     ?   updatedAt?: DateTimeFilter | DateTime,
+     ?   updatedByUser?: StringFilter | String,
+     ?   JobOrders?: JobOrderListRelationFilter,
+     ?   OtherIncomes?: OtherIncomeListRelationFilter,
+     ?   Equipments?: EquipmentListRelationFilter,
+     ?   Overheads?: OverheadListRelationFilter,
+     ?   JobOrderEdit?: JobOrderEditListRelationFilter,
+     ?   OtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+     ?   EquipmentEdit?: EquipmentEditListRelationFilter,
+     ?   OverheadExpensesEdit?: OverheadEditListRelationFilter,
+     ?   edits?: BranchEditListRelationFilter,
+     ?   createdBy?: UserScalarRelationFilter | UserWhereInput,
+     ?   updatedBy?: UserScalarRelationFilter | UserWhereInput
+       }
+     })
+
+Unknown argument `plate`. Available options are marked with ?.
+20250916	19:37:49	3f8e9af6-381f-4600-a0a9-8117725de0c7	PrismaClientValidationError: 
+Invalid `prisma.truckEdit.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:21:47
+
+  18     .json({ message: "Plate number, make, and model are required" });
+  19 
+  20 const existingTruck = await prisma.truck.findFirst({ where: { plate } });
+→ 21 const pendingTruck = await prisma.truckEdit.findFirst({
+       where: {
+         plate: "1234",
+         approvalStatus: "pending",
+         ~~~~~~~~~~~~~~
+     ?   AND?: TruckEditWhereInput | TruckEditWhereInput[],
+     ?   OR?: TruckEditWhereInput[],
+     ?   NOT?: TruckEditWhereInput | TruckEditWhereInput[],
+     ?   id?: StringFilter | String,
+     ?   truckId?: StringNullableFilter | String | Null,
+     ?   make?: StringFilter | String,
+     ?   model?: StringFilter | String,
+     ?   createdAt?: DateTimeFilter | DateTime,
+     ?   createdByUser?: StringFilter | String,
+     ?   updatedAt?: DateTimeFilter | DateTime,
+     ?   updatedByUser?: StringFilter | String,
+     ?   truck?: TruckNullableScalarRelationFilter | TruckWhereInput | Null,
+     ?   createdBy?: UserScalarRelationFilter | UserWhereInput,
+     ?   updatedBy?: UserScalarRelationFilter | UserWhereInput
+       }
+     })
+
+Unknown argument `approvalStatus`. Available options are marked with ?.
+20250916	21:24:55	451e17b8-1d08-4bbf-a7d3-674fd353e815	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:25:10	c76e8ad8-24f2-4faa-b7de-6b7cceaaa178	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:25:58	0b978f29-deeb-4b8b-bc37-6330b8b30b84	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:26:20	c19fb9a9-a0a7-4d1e-80cc-8f0178987834	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:26:25	cd180b18-e2dd-451d-aff7-2584df75be88	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:30:24	90b19860-4c49-4df1-82ba-dadb848061b6	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:31:08	e9dd2642-627e-415b-a673-94517b46230f	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:33:27	29a42749-3a70-477e-b011-ee5287856e39	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:34:23	f1e3196b-7439-4bd1-9348-c84b888d389a	TypeError: Cannot read properties of null (reading 'username')
+20250916	21:50:45	72f8c808-ba24-48ff-9b3c-d92fa3e9be98	ReferenceError: sanitizeAndValidate is not defined
+20250916	21:51:22	a9f30f64-1782-4130-a3d3-76fc3ce22d24	Error: Invalid input in description: HTML or scripts are not allowed
+20250916	21:51:34	401b1a78-e207-4bc7-a842-205c8992e75f	Error: Invalid input in description: HTML or scripts are not allowed
+20250916	21:51:47	0be98775-abb7-4d3e-9a57-4195c721bdf3	Error: Invalid input in description: HTML or scripts are not allowed
+20250916	21:51:51	de937467-7337-4e59-aaf9-c717eecf1f6d	Error: Invalid input in description: HTML or scripts are not allowed
+20250916	21:52:42	11eefe16-3a36-4cd1-bc54-64cbb3eebbe8	Error: Invalid input in description: HTML or scripts are not allowed
+20250916	21:53:19	d1facb1a-0566-4ca2-9dfa-f9b6b86063b8	Error: Invalid input in description: HTML or scripts are not allowed
+20250916	22:25:01	77af2d98-764b-4049-bfe9-5bc9b6cca85b	SyntaxError: Expected ',' or '}' after property value in JSON at position 153 (line 6 column 4)
+20250918	17:20:14	30531c29-d182-43c4-8a28-18845f123fdc	PrismaClientValidationError: 
+Invalid `prisma.truck.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:76:36
+
+  73 if (!req?.body?.id)
+  74   return res.status(400).json({ message: "ID is required" });
+  75 
+→ 76 const truck = await prisma.truck.findFirst({
+       id: "0b7ccb23-d20d-4967-a07d-fd82c10a99c4",
+       ~~
+     ? where?: TruckWhereInput,
+     ? orderBy?: TruckOrderByWithRelationInput[] | TruckOrderByWithRelationInput,
+     ? cursor?: TruckWhereUniqueInput,
+     ? take?: Int,
+     ? skip?: Int,
+     ? distinct?: TruckScalarFieldEnum | TruckScalarFieldEnum[]
+     })
+
+Unknown argument `id`. Did you mean `skip`? Available options are marked with ?.
+20250918	17:20:37	7e7fd931-d3b4-444c-8a3e-bee58f9f41c2	PrismaClientValidationError: 
+Invalid `prisma.truck.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:76:36
+
+  73 if (!req?.body.id)
+  74   return res.status(400).json({ message: "ID is required" });
+  75 
+→ 76 const truck = await prisma.truck.findFirst({
+       id: "0b7ccb23-d20d-4967-a07d-fd82c10a99c4",
+       ~~
+     ? where?: TruckWhereInput,
+     ? orderBy?: TruckOrderByWithRelationInput[] | TruckOrderByWithRelationInput,
+     ? cursor?: TruckWhereUniqueInput,
+     ? take?: Int,
+     ? skip?: Int,
+     ? distinct?: TruckScalarFieldEnum | TruckScalarFieldEnum[]
+     })
+
+Unknown argument `id`. Did you mean `skip`? Available options are marked with ?.
+20250918	17:20:50	d69e3aa6-2196-4711-be95-67919ac1b618	PrismaClientValidationError: 
+Invalid `prisma.truck.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\truckController.js:76:36
+
+  73 if (!req.body.id)
+  74   return res.status(400).json({ message: "ID is required" });
+  75 
+→ 76 const truck = await prisma.truck.findFirst({
+       id: "0b7ccb23-d20d-4967-a07d-fd82c10a99c4",
+       ~~
+     ? where?: TruckWhereInput,
+     ? orderBy?: TruckOrderByWithRelationInput[] | TruckOrderByWithRelationInput,
+     ? cursor?: TruckWhereUniqueInput,
+     ? take?: Int,
+     ? skip?: Int,
+     ? distinct?: TruckScalarFieldEnum | TruckScalarFieldEnum[]
+     })
+
+Unknown argument `id`. Did you mean `skip`? Available options are marked with ?.
+20250918	17:35:16	f7100d38-e868-4be8-b3da-572916957451	PrismaClientValidationError: 
+Invalid `prisma.branch.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\branchController.js:79:36
+
+  76 
+  77 if (!req.body.id) return res.status(404).json({ message: "ID is required" });
+  78 
+→ 79 const user = await prisma.branch.findFirst({
+       id: "862595b5-cd6d-4f17-b68f-4b863503dbff",
+       ~~
+     ? where?: BranchWhereInput,
+     ? orderBy?: BranchOrderByWithRelationInput[] | BranchOrderByWithRelationInput,
+     ? cursor?: BranchWhereUniqueInput,
+     ? take?: Int,
+     ? skip?: Int,
+     ? distinct?: BranchScalarFieldEnum | BranchScalarFieldEnum[]
+     })
+
+Unknown argument `id`. Did you mean `skip`? Available options are marked with ?.
+20250919	21:37:12	5833488e-98be-4753-a030-7827b2d9bba2	SyntaxError: Expected double-quoted property name in JSON at position 376 (line 18 column 1)
+20250922	17:58:28	56b9c8b2-732d-425f-9e91-5dd5455d0e3b	SyntaxError: Expected double-quoted property name in JSON at position 136 (line 7 column 1)
+20250922	18:09:02	3cfe1a62-1e39-4d8f-b30c-03c6c2cc193e	SyntaxError: Expected double-quoted property name in JSON at position 83 (line 5 column 1)
+20250923	17:32:47	1fdfcdb0-93e8-4d56-9b17-88eeb4ddd152	PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\userController.js:470:34
+
+  467   return res.status(400).json({ message: "ID is required" });
+  468 }
+  469 
+→ 470 const user = await prisma.user.findUnique({
+        where: {
+          id: undefined,
+      ?   username?: String,
+      ?   email?: String,
+      ?   AND?: UserWhereInput | UserWhereInput[],
+      ?   OR?: UserWhereInput[],
+      ?   NOT?: UserWhereInput | UserWhereInput[],
+      ?   fullName?: StringFilter | String,
+      ?   phone?: StringFilter | String,
+      ?   hashPwd?: StringFilter | String,
+      ?   description?: StringNullableFilter | String | Null,
+      ?   refreshToken?: StringNullableFilter | String | Null,
+      ?   approvalStatus?: EnumApprovalStatusFilter | ApprovalStatus,
+      ?   createdAt?: DateTimeFilter | DateTime,
+      ?   createdByUser?: StringNullableFilter | String | Null,
+      ?   updatedAt?: DateTimeFilter | DateTime,
+      ?   updatedByUser?: StringNullableFilter | String | Null,
+      ?   admin?: AdminListRelationFilter,
+      ?   customer?: CustomerListRelationFilter,
+      ?   contractor?: ContractorListRelationFilter,
+      ?   employee?: EmployeeListRelationFilter,
+      ?   activityLog?: ActivityLogListRelationFilter,
+      ?   roles?: UserRoleListRelationFilter,
+      ?   edits?: UserEditListRelationFilter,
+      ?   createdUsers?: UserListRelationFilter,
+      ?   updatedUsers?: UserListRelationFilter,
+      ?   createdUserEdit?: UserEditListRelationFilter,
+      ?   createdRole?: RoleListRelationFilter,
+      ?   createdBranches?: BranchListRelationFilter,
+      ?   createdBranchEdit?: BranchEditListRelationFilter,
+      ?   createdTrucks?: TruckListRelationFilter,
+      ?   createdTruckEdit?: TruckEditListRelationFilter,
+      ?   createdTransaction?: TransactionListRelationFilter,
+      ?   createdTransactionEdit?: TransactionEditListRelationFilter,
+      ?   createdJobOrder?: JobOrderListRelationFilter,
+      ?   createdJobOrderEdit?: JobOrderEditListRelationFilter,
+      ?   createdContractorPay?: ContractorPayListRelationFilter,
+      ?   createdContractorPayEdit?: ContractorPayEditListRelationFilter,
+      ?   createdEmployeeSalary?: EmployeeSalaryListRelationFilter,
+      ?   createdEmployeeSalaryEdit?: EmployeeSalaryEditListRelationFilter,
+      ?   createdEquipment?: EquipmentListRelationFilter,
+      ?   createdEquipmentEdit?: EquipmentEditListRelationFilter,
+      ?   createdOtherIncome?: OtherIncomeListRelationFilter,
+      ?   createdOtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+      ?   createdOverhead?: OverheadListRelationFilter,
+      ?   createdOverheadEdit?: OverheadEditListRelationFilter,
+      ?   transferredTruckOwnership?: TruckOwnershipListRelationFilter,
+      ?   updatedUserEdits?: UserEditListRelationFilter,
+      ?   updatedBranches?: BranchListRelationFilter,
+      ?   updatedBranchEdits?: BranchEditListRelationFilter,
+      ?   updatedTruck?: TruckListRelationFilter,
+      ?   updatedTruckEdit?: TruckEditListRelationFilter,
+      ?   updatedTransaction?: TransactionListRelationFilter,
+      ?   updatedTransactionEdit?: TransactionEditListRelationFilter,
+      ?   updatedJobOrder?: JobOrderListRelationFilter,
+      ?   updatedJobOrderEdit?: JobOrderEditListRelationFilter,
+      ?   updatedContractorPay?: ContractorPayListRelationFilter,
+      ?   updatedContractorPayEdit?: ContractorPayEditListRelationFilter,
+      ?   updatedEmployeeSalary?: EmployeeSalaryListRelationFilter,
+      ?   updatedEmployeeSalaryEdit?: EmployeeSalaryEditListRelationFilter,
+      ?   updatedEquipment?: EquipmentListRelationFilter,
+      ?   updatedEquipmentEdit?: EquipmentEditListRelationFilter,
+      ?   updatedOtherIncome?: OtherIncomeListRelationFilter,
+      ?   updatedOtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+      ?   updatedOverhead?: OverheadListRelationFilter,
+      ?   updatedOverheadEdit?: OverheadEditListRelationFilter,
+      ?   createdBy?: UserNullableScalarRelationFilter | UserWhereInput | Null,
+      ?   updatedBy?: UserNullableScalarRelationFilter | UserWhereInput | Null
+        }
+      })
+
+Argument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.
+20250923	22:54:11	e525b848-3a1b-4baf-af5b-cdf8d71332fe	SyntaxError: Expected double-quoted property name in JSON at position 219 (line 9 column 1)
+20250923	23:19:25	2f7ea808-3dc3-4ce5-8fda-e2c877a2f203	Error: data and hash arguments required
+20250923	23:19:53	7240e1f4-42db-46f4-ad83-b9aab5b5950c	Error: data and hash arguments required
+20250923	23:20:24	946d0c86-1a9f-4f0c-bf0e-d3bae0b8031e	Error: data and hash arguments required
+20250923	23:25:22	304ba69e-7732-4b05-b7f8-d876a31bb3e7	SyntaxError: Expected ',' or '}' after property value in JSON at position 104 (line 5 column 1)
+20250924	13:55:03	cf8985ac-6412-40a5-b83c-64c217c2a5fa	SyntaxError: Expected ',' or '}' after property value in JSON at position 29 (line 3 column 1)
+20250924	15:05:02	8664fa79-c5a4-4fa9-9bd4-f513ad71ec77	SyntaxError: Expected property name or '}' in JSON at position 3 (line 2 column 1)
+20250924	21:53:25	842d38ea-c358-4981-b65a-51d410bb2a2f	Error: Cannot set headers after they are sent to the client
+20250924	21:57:18	45dbff57-7edf-4b30-9d2a-f64573648ca9	Error: Cannot set headers after they are sent to the client
+20250924	23:48:56	8a84af39-006d-4def-a4f0-bbd49f89673d	SyntaxError: Expected double-quoted property name in JSON at position 39 (line 4 column 1)
+20250924	23:49:51	65d4e083-cb9f-42bb-909d-62204e0f2386	SyntaxError: Expected double-quoted property name in JSON at position 88 (line 7 column 1)
+20250925	12:18:12	a113bb42-0236-4611-85f7-0d74e7dc7b34	Error: Cannot set headers after they are sent to the client
+20250925	14:35:14	24419bd5-093a-4696-a9a0-5f5ee5c12a13	SyntaxError: Expected double-quoted property name in JSON at position 165 (line 9 column 1)
+20250925	18:05:51	db4fa78b-a6f1-4183-b3f8-4138b6dbae60	SyntaxError: Expected double-quoted property name in JSON at position 45 (line 9 column 1)
+20250925	18:06:46	961ff4ea-c1b8-4274-9fc0-0a5a1a85c19f	SyntaxError: Expected double-quoted property name in JSON at position 33 (line 9 column 1)
+20250925	23:27:24	db896a41-0ddc-484a-9ff5-6053fef82d01	Error: Cannot set headers after they are sent to the client
+20250926	17:47:22	c13b4e2d-08b4-403e-b60d-ec73b5bbcfd2	Error: Cannot set headers after they are sent to the client
+20250926	17:47:43	ea5a4055-9e1c-4b61-8459-557624ca6bd2	Error: Cannot set headers after they are sent to the client
+20250926	17:50:11	bafc78b2-aa8f-4a74-a41d-06aae56d386c	Error: Cannot set headers after they are sent to the client
+20250926	17:51:01	4f0e62b2-46fe-48df-a813-6659597ba098	Error: Cannot set headers after they are sent to the client
+20250926	17:54:04	1d4e6b9c-20bf-4a37-8840-4a6fd59a1adb	Error: Cannot set headers after they are sent to the client
+20250927	22:10:07	a82f363a-e44c-46b8-9084-99f689461ebc	TypeError: 500.json is not a function
+20251004	00:07:04	2c89cdb5-4b9c-4125-95b2-3fa2474a0e86	TypeError: Cannot set properties of undefined (setting 'branch')
+20251008	00:39:19	5ab8ba7d-16e3-442d-a382-baa9271558fb	TypeError: Assignment to constant variable.
+20251008	04:02:46	8c5f7fb6-8d26-42be-85ce-eb74a7141238	TypeError: Assignment to constant variable.
+20251008	04:02:46	e6817c11-fb8d-4a6b-8870-eb0e61c3d4f2	TypeError: Assignment to constant variable.
+20251008	04:02:46	08d8664c-4b68-466e-8167-7ef63f64b3ab	TypeError: Assignment to constant variable.
+20251008	04:02:53	f8025618-6eee-450e-946c-54e4da3ede02	TypeError: Assignment to constant variable.
+20251008	04:02:53	4d8a0509-0f47-49d4-a0be-6f76e5c6ce20	TypeError: Assignment to constant variable.
+20251008	04:03:21	3064c9ce-ae01-495f-9f37-9fc079f3dafe	TypeError: Assignment to constant variable.
+20251008	04:03:21	b0ecc7a1-b220-4823-af64-e6e1715877b3	TypeError: Assignment to constant variable.
+20251008	04:03:21	17915b0c-06ca-40ef-833c-3943b313deb1	TypeError: Assignment to constant variable.
+20251008	04:04:24	7c5cd1b3-3207-4cda-9873-c1efe5ace796	TypeError: Assignment to constant variable.
+20251008	04:04:24	24d1f352-1a0d-4eaa-b4ac-163d29cc2d32	TypeError: Assignment to constant variable.
+20251008	17:16:56	d629bb83-1648-4f0f-8d3a-df78e2582460	ReferenceError: whereEmployee is not defined
+20251008	18:31:23	116e596a-46f7-4b31-bd75-6c4c53c18dcb	ReferenceError: getDateRange is not defined
+20251008	18:31:48	029ec24e-ce9d-49c4-b9bb-ce2f4630d865	ReferenceError: getMonthYear is not defined
+20251008	18:31:52	2816be76-f3cc-40dd-912d-f4b452d45d23	ReferenceError: getMonthYear is not defined
+20251008	18:31:53	5efdc247-8bad-4075-87f0-b90613ff4dc4	ReferenceError: getMonthYear is not defined
+20251008	18:31:53	88cd26dd-7931-42aa-a89b-684aa7a9add2	ReferenceError: getMonthYear is not defined
+20251008	18:31:53	e6a0cf38-016d-4ddd-bf58-b7a4e34721a4	ReferenceError: getMonthYear is not defined
+20251008	18:31:53	d266d63c-c886-408e-a09f-eafa31947505	ReferenceError: getMonthYear is not defined
+20251008	18:32:08	ea3a710a-9b46-4d2d-a4cb-6157145748ff	ReferenceError: getMonthYear is not defined
+20251008	18:32:08	cbc25f18-812c-496b-b419-393088eed7d0	ReferenceError: getMonthYear is not defined
+20251008	18:32:09	4ba5a65d-b1da-4cd5-8653-aa9a8c6d5b85	ReferenceError: getMonthYear is not defined
+20251008	18:32:09	94fc3b0a-1c79-4d65-92c9-b6868937b3c7	ReferenceError: getMonthYear is not defined
+20251008	18:32:09	a98dc689-494c-41ff-95f9-19175c113737	ReferenceError: getMonthYear is not defined
+20251008	18:32:13	1034c7f9-0b03-48d6-9330-f0523a4560cc	ReferenceError: getMonthYear is not defined
+20251008	18:32:13	c0cd1df9-2c61-402b-8550-c003e659c6aa	ReferenceError: getMonthYear is not defined
+20251008	18:32:13	70f83a42-6aa1-4ef2-acfd-53b7df91ec54	ReferenceError: getMonthYear is not defined
+20251008	18:32:14	664ec6c5-31ae-4e99-853d-c57c72037089	ReferenceError: getMonthYear is not defined
+20251008	18:32:14	b0c05368-0776-4b40-85c1-f5db9a9eec6e	ReferenceError: getMonthYear is not defined
+20251008	18:32:44	ab416eb9-b93c-4eda-a14b-bda5cb212b76	ReferenceError: getMonthYear is not defined
+20251008	18:32:44	86e50ca9-54b4-4df8-8661-ef4f58c13bcd	ReferenceError: getMonthYear is not defined
+20251008	18:32:44	60c80b09-90b1-482c-9437-d5843f765721	ReferenceError: getMonthYear is not defined
+20251008	18:32:44	b5f48098-9306-44d6-8c29-7622f32ffc63	ReferenceError: getMonthYear is not defined
+20251008	18:32:44	7a3417b4-e70c-464e-a87a-e8863175f747	ReferenceError: getMonthYear is not defined
+20251008	23:35:35	d34f4b73-04e5-48cb-b1d0-89f2e4d3ad3d	ReferenceError: Cannot access 'where' before initialization
+20251009	02:05:32	60a1a0dd-c05f-43fd-832f-29ced3ad3a7d	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:06:11	c9cd0471-1bda-4e1c-8489-178eabcb8ad9	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:06:11	025d3097-df9a-418f-a23a-241ddbf9a5f8	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:06:11	f336f8a9-da45-4646-90f9-fd344f741e30	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:06:40	1464d55b-e3fa-4b8f-b47a-7909ff8a4b93	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:09:40	ea284e49-ef56-438e-a050-a4d7ab7095f4	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:09:40	e24bd7ab-08f0-415e-a818-a8ec694fe257	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:09:40	42d388ac-dc17-4951-bf34-0112be79c508	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:02	66b1aa28-45c6-4f9a-82f3-bb7a3718c825	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:02	46e14de6-33ef-4d40-9fd1-30cf5f6a799a	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:02	95e622b1-3ca9-452e-9df6-8fe1f20bcc01	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:06	faa0e8f3-9e51-447c-8904-4a52beaace45	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:06	2fb60163-9259-4bbf-8c71-d03f0f9f5c5b	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:06	7fbc2f7d-b6a2-4c7d-b016-6fd438e7e948	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:20	3778ead8-c471-48cc-a92a-0cfa0f1cf660	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:20	1487da40-990d-4e2e-971a-d3ca1d336c89	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:20	91c40f56-34a4-4876-9827-97cd469e621f	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:30	786de8f3-a241-4cb3-8bc8-bb084dceebe1	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:30	757553d7-b6d0-42b9-a31a-1fbfed1b20f5	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:30	02984163-6de4-41dc-aa50-19105b362660	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:33	b4a4bf9e-b3a1-4245-90e7-e8151e692a99	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:33	b8a82572-aa2a-421c-9a29-a2ff223c381f	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:33	273430fb-2db3-4f3f-aca9-cefdc28d56ec	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:37	c371736a-5334-470f-823d-e548c3bb0b61	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:37	590ed7a5-a437-4f95-aed7-c7f7f45fd08f	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:38	ca3a71bf-76fa-4dd9-833e-3bf1da211015	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:39	2a02a54c-2d0b-43b6-87b9-c4a8b75babc9	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:39	d6f5e1a9-963c-46b8-92cd-8a0aef7fc2a9	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:42	003d6b80-08c0-4eed-a35c-7aacb3c50014	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:42	dad774e2-0c7d-465f-a176-6464e77e8b70	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:43	bce95b15-0cf0-4aea-b0a1-b874f26b5ffe	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:44	9bd646fe-f632-40d9-b414-61e468a4090b	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:44	f30f50f7-73c6-4e61-b50f-47d2a250bdf9	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:10:59	fbe4e85b-fb5a-4963-84d8-e1a9d5bfea68	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:11:00	dfba519e-faac-4541-901d-2ca30ea6fdd5	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:11:00	be5ef44e-b637-4128-9ba0-452db7b66e47	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:12:55	b3e99c42-cbec-4f88-b021-6577007a121e	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:12:55	9d059f0f-e9d3-488a-bd4a-913127a32cec	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:12:55	5fc906ed-08af-4ee0-bb5d-ae74b0600440	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:12:59	ca920d7e-be94-416d-b644-12a68c01c1fc	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:13:00	0f74f803-58d0-4f7a-b96b-9b3d051ce6fc	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:13:00	5edd2bcc-e5e4-483b-8800-7527a22659ca	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:13:03	32f352dc-9780-4528-a2d9-e248d0ce2b08	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:13:03	c9abff11-671b-4d49-a6c5-6e8168cbdd14	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:16:37	5b63230a-370a-450b-b5a3-bb3777749ee1	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:16:37	a2ce5dca-7228-4110-9edf-1a143e626f8c	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:16:37	b62c41cd-5f0e-4abb-a7e0-45f9dc5fb9bc	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:20:45	093fd05d-b510-4725-b693-4b042b2a8825	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:20:51	aeea65d2-a7cc-44e1-a296-7051eb16b46c	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:20:51	ce425427-0abb-45c3-92e5-86328941c0c2	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:23:44	86aac67b-d9e5-4522-94ce-10afff3fbb5b	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:23:44	bf347a4b-ada2-4b32-90d7-836340683777	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:25:54	c8ede834-0f0f-4688-bf2b-e38a90248be3	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:25:55	9b20eed1-0a3d-486e-8116-30b1ab223315	TypeError: Cannot read properties of undefined (reading 'map')
+20251009	02:27:35	916feacb-5d26-42d6-9cc2-cb61cd61f295	ReferenceError: username is not defined
+20251009	02:27:36	d3ae0cdd-3652-4804-af53-67b03c894847	ReferenceError: username is not defined
+20251009	02:27:44	d7e10b7b-e82d-4bff-9b46-3d99ea422b67	ReferenceError: username is not defined
+20251009	02:28:28	c0e8b47b-3994-4edf-adac-afe1dc579c2e	ReferenceError: username is not defined
+20251009	02:28:29	99ee2e3c-fd47-4111-902e-28b6f86419e3	ReferenceError: username is not defined
+20251009	02:29:18	54447295-c165-434d-9074-54c80852238e	ReferenceError: username is not defined
+20251009	02:29:18	592b051f-094b-468d-abfe-4f7faf9810fb	ReferenceError: username is not defined
+20251009	02:29:44	2b1493dd-f1d3-423e-9aae-7135e03074c6	PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\refreshController.js:11:40
+
+   8 if (!refreshToken)
+   9   return res.status(401).json({ message: "No cookies found" });
+  10 
+→ 11  const foundUser = await prisma.user.findUnique({
+        where: {
+          refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE3NTk5NDgxODIsImV4cCI6MTc2MDAzNDU4Mn0.f3lu3sUDmNsxNMn_HIy6GbwJ56NYbLaETCkKxWlWBD8",
+      ?   id?: String,
+      ?   username?: String,
+      ?   email?: String,
+      ?   AND?: UserWhereInput | UserWhereInput[],
+      ?   OR?: UserWhereInput[],
+      ?   NOT?: UserWhereInput | UserWhereInput[],
+      ?   fullName?: StringFilter | String,
+      ?   phone?: StringFilter | String,
+      ?   hashPwd?: StringFilter | String,
+      ?   description?: StringNullableFilter | String | Null,
+      ?   status?: EnumAccountStatusNullableFilter | AccountStatus | Null,
+      ?   createdAt?: DateTimeFilter | DateTime,
+      ?   createdByUser?: StringNullableFilter | String | Null,
+      ?   updatedAt?: DateTimeFilter | DateTime,
+      ?   updatedByUser?: StringNullableFilter | String | Null,
+      ?   admin?: AdminNullableScalarRelationFilter | AdminWhereInput | Null,
+      ?   customer?: CustomerNullableScalarRelationFilter | CustomerWhereInput | Null,
+      ?   contractor?: ContractorNullableScalarRelationFilter | ContractorWhereInput | Null,
+      ?   employee?: EmployeeNullableScalarRelationFilter | EmployeeWhereInput | Null,
+      ?   activityLog?: ActivityLogListRelationFilter,
+      ?   roles?: UserRoleListRelationFilter,
+      ?   rolesEdit?: UserRoleEditListRelationFilter,
+      ?   branches?: UserBranchListRelationFilter,
+      ?   branchesEdit?: UserBranchEditListRelationFilter,
+      ?   edits?: UserEditListRelationFilter,
+      ?   createdUsers?: UserListRelationFilter,
+      ?   updatedUsers?: UserListRelationFilter,
+      ?   createdUserEdit?: UserEditListRelationFilter,
+      ?   createdRole?: RoleListRelationFilter,
+      ?   createdBranches?: BranchListRelationFilter,
+      ?   createdBranchEdit?: BranchEditListRelationFilter,
+      ?   createdTrucks?: TruckListRelationFilter,
+      ?   createdTruckEdit?: TruckEditListRelationFilter,
+      ?   createdTransactionZ?: TransactionZListRelationFilter,
+      ?   createdTransaction?: TransactionListRelationFilter,
+      ?   createdTransactionEditZ?: TransactionEditZListRelationFilter,
+      ?   createdJobOrder?: JobOrderListRelationFilter,
+      ?   createdJobOrderEdit?: JobOrderEditListRelationFilter,
+      ?   createdContractorPay?: ContractorPayListRelationFilter,
+      ?   createdContractorPayEdit?: ContractorPayEditListRelationFilter,
+      ?   createdEmployeeSalary?: EmployeeSalaryListRelationFilter,
+      ?   createdEmployeeSalaryEdit?: EmployeeSalaryEditListRelationFilter,
+      ?   createdEmployeePay?: EmployeePayListRelationFilter,
+      ?   createdPayComponent?: PayComponentListRelationFilter,
+      ?   createdEquipment?: EquipmentListRelationFilter,
+      ?   createdEquipmentEdit?: EquipmentEditListRelationFilter,
+      ?   createdOtherIncome?: OtherIncomeListRelationFilter,
+      ?   createdOtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+      ?   createdOverhead?: OverheadListRelationFilter,
+      ?   createdOverheadEdit?: OverheadEditListRelationFilter,
+      ?   transferredTruckOwnership?: TruckOwnershipListRelationFilter,
+      ?   transferredTruckOwnershipEdit?: TruckOwnershipEditListRelationFilter,
+      ?   updatedUserEdits?: UserEditListRelationFilter,
+      ?   updatedBranches?: BranchListRelationFilter,
+      ?   updatedBranchEdits?: BranchEditListRelationFilter,
+      ?   updatedTruck?: TruckListRelationFilter,
+      ?   updatedTruckEdit?: TruckEditListRelationFilter,
+      ?   updatedTransactionZ?: TransactionZListRelationFilter,
+      ?   updatedTransaction?: TransactionListRelationFilter,
+      ?   updatedTransactionEditZ?: TransactionEditZListRelationFilter,
+      ?   updatedJobOrder?: JobOrderListRelationFilter,
+      ?   updatedJobOrderEdit?: JobOrderEditListRelationFilter,
+      ?   updatedContractorPay?: ContractorPayListRelationFilter,
+      ?   updatedContractorPayEdit?: ContractorPayEditListRelationFilter,
+      ?   updatedEmployeeSalary?: EmployeeSalaryListRelationFilter,
+      ?   updatedEmployeeSalaryEdit?: EmployeeSalaryEditListRelationFilter,
+      ?   updatedEmployeePay?: EmployeePayListRelationFilter,
+      ?   updatedPayComponent?: PayComponentListRelationFilter,
+      ?   updatedEquipment?: EquipmentListRelationFilter,
+      ?   updatedEquipmentEdit?: EquipmentEditListRelationFilter,
+      ?   updatedOtherIncome?: OtherIncomeListRelationFilter,
+      ?   updatedOtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+      ?   updatedOverhead?: OverheadListRelationFilter,
+      ?   updatedOverheadEdit?: OverheadEditListRelationFilter,
+      ?   createdBy?: UserNullableScalarRelationFilter | UserWhereInput | Null,
+      ?   updatedBy?: UserNullableScalarRelationFilter | UserWhereInput | Null
+        },
+        include: {
+          roles: {
+            include: {
+              role: true
+            }
+          },
+          branches: {
+            include: {
+              branch: true
+            }
+          }
+        }
+      })
+
+Argument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.
+20251009	02:29:45	55ff54c6-8a7b-4873-87e6-fed8e125869e	PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\refreshController.js:11:40
+
+   8 if (!refreshToken)
+   9   return res.status(401).json({ message: "No cookies found" });
+  10 
+→ 11  const foundUser = await prisma.user.findUnique({
+        where: {
+          refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN1cGVyYWRtaW4iLCJpYXQiOjE3NTk5NDgxODIsImV4cCI6MTc2MDAzNDU4Mn0.f3lu3sUDmNsxNMn_HIy6GbwJ56NYbLaETCkKxWlWBD8",
+      ?   id?: String,
+      ?   username?: String,
+      ?   email?: String,
+      ?   AND?: UserWhereInput | UserWhereInput[],
+      ?   OR?: UserWhereInput[],
+      ?   NOT?: UserWhereInput | UserWhereInput[],
+      ?   fullName?: StringFilter | String,
+      ?   phone?: StringFilter | String,
+      ?   hashPwd?: StringFilter | String,
+      ?   description?: StringNullableFilter | String | Null,
+      ?   status?: EnumAccountStatusNullableFilter | AccountStatus | Null,
+      ?   createdAt?: DateTimeFilter | DateTime,
+      ?   createdByUser?: StringNullableFilter | String | Null,
+      ?   updatedAt?: DateTimeFilter | DateTime,
+      ?   updatedByUser?: StringNullableFilter | String | Null,
+      ?   admin?: AdminNullableScalarRelationFilter | AdminWhereInput | Null,
+      ?   customer?: CustomerNullableScalarRelationFilter | CustomerWhereInput | Null,
+      ?   contractor?: ContractorNullableScalarRelationFilter | ContractorWhereInput | Null,
+      ?   employee?: EmployeeNullableScalarRelationFilter | EmployeeWhereInput | Null,
+      ?   activityLog?: ActivityLogListRelationFilter,
+      ?   roles?: UserRoleListRelationFilter,
+      ?   rolesEdit?: UserRoleEditListRelationFilter,
+      ?   branches?: UserBranchListRelationFilter,
+      ?   branchesEdit?: UserBranchEditListRelationFilter,
+      ?   edits?: UserEditListRelationFilter,
+      ?   createdUsers?: UserListRelationFilter,
+      ?   updatedUsers?: UserListRelationFilter,
+      ?   createdUserEdit?: UserEditListRelationFilter,
+      ?   createdRole?: RoleListRelationFilter,
+      ?   createdBranches?: BranchListRelationFilter,
+      ?   createdBranchEdit?: BranchEditListRelationFilter,
+      ?   createdTrucks?: TruckListRelationFilter,
+      ?   createdTruckEdit?: TruckEditListRelationFilter,
+      ?   createdTransactionZ?: TransactionZListRelationFilter,
+      ?   createdTransaction?: TransactionListRelationFilter,
+      ?   createdTransactionEditZ?: TransactionEditZListRelationFilter,
+      ?   createdJobOrder?: JobOrderListRelationFilter,
+      ?   createdJobOrderEdit?: JobOrderEditListRelationFilter,
+      ?   createdContractorPay?: ContractorPayListRelationFilter,
+      ?   createdContractorPayEdit?: ContractorPayEditListRelationFilter,
+      ?   createdEmployeeSalary?: EmployeeSalaryListRelationFilter,
+      ?   createdEmployeeSalaryEdit?: EmployeeSalaryEditListRelationFilter,
+      ?   createdEmployeePay?: EmployeePayListRelationFilter,
+      ?   createdPayComponent?: PayComponentListRelationFilter,
+      ?   createdEquipment?: EquipmentListRelationFilter,
+      ?   createdEquipmentEdit?: EquipmentEditListRelationFilter,
+      ?   createdOtherIncome?: OtherIncomeListRelationFilter,
+      ?   createdOtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+      ?   createdOverhead?: OverheadListRelationFilter,
+      ?   createdOverheadEdit?: OverheadEditListRelationFilter,
+      ?   transferredTruckOwnership?: TruckOwnershipListRelationFilter,
+      ?   transferredTruckOwnershipEdit?: TruckOwnershipEditListRelationFilter,
+      ?   updatedUserEdits?: UserEditListRelationFilter,
+      ?   updatedBranches?: BranchListRelationFilter,
+      ?   updatedBranchEdits?: BranchEditListRelationFilter,
+      ?   updatedTruck?: TruckListRelationFilter,
+      ?   updatedTruckEdit?: TruckEditListRelationFilter,
+      ?   updatedTransactionZ?: TransactionZListRelationFilter,
+      ?   updatedTransaction?: TransactionListRelationFilter,
+      ?   updatedTransactionEditZ?: TransactionEditZListRelationFilter,
+      ?   updatedJobOrder?: JobOrderListRelationFilter,
+      ?   updatedJobOrderEdit?: JobOrderEditListRelationFilter,
+      ?   updatedContractorPay?: ContractorPayListRelationFilter,
+      ?   updatedContractorPayEdit?: ContractorPayEditListRelationFilter,
+      ?   updatedEmployeeSalary?: EmployeeSalaryListRelationFilter,
+      ?   updatedEmployeeSalaryEdit?: EmployeeSalaryEditListRelationFilter,
+      ?   updatedEmployeePay?: EmployeePayListRelationFilter,
+      ?   updatedPayComponent?: PayComponentListRelationFilter,
+      ?   updatedEquipment?: EquipmentListRelationFilter,
+      ?   updatedEquipmentEdit?: EquipmentEditListRelationFilter,
+      ?   updatedOtherIncome?: OtherIncomeListRelationFilter,
+      ?   updatedOtherIncomeEdit?: OtherIncomeEditListRelationFilter,
+      ?   updatedOverhead?: OverheadListRelationFilter,
+      ?   updatedOverheadEdit?: OverheadEditListRelationFilter,
+      ?   createdBy?: UserNullableScalarRelationFilter | UserWhereInput | Null,
+      ?   updatedBy?: UserNullableScalarRelationFilter | UserWhereInput | Null
+        },
+        include: {
+          roles: {
+            include: {
+              role: true
+            }
+          },
+          branches: {
+            include: {
+              branch: true
+            }
+          }
+        }
+      })
+
+Argument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.
+20251009	02:30:48	cab031bf-bf42-4a29-a31f-1ba7333d9120	TypeError: branches22.map is not a function
+20251009	02:30:49	c9de33fd-f8ba-4b67-827a-a4c4c39fb40b	TypeError: branches22.map is not a function
+20251009	02:30:49	88073d59-c5df-42f4-9498-594df1112a06	TypeError: branches22.map is not a function
+20251009	02:30:49	d65f1eb2-b96f-41a7-8a19-1f2018afa72c	TypeError: branches22.map is not a function
+20251009	02:30:53	09b8ec5b-4d3f-479a-a7d8-705950837eb2	TypeError: branches22.map is not a function
+20251009	02:30:53	a46c5785-4bbf-452b-97f5-3d4d8ef2f72e	TypeError: branches22.map is not a function
+20251009	02:30:54	a094f423-449e-4a11-bca2-f624e7f80396	TypeError: branches22.map is not a function
+20251009	02:30:54	ffd275bd-f1ae-4802-ae82-23666129ec01	TypeError: branches22.map is not a function
+20251009	02:30:54	727a7c17-4791-4c47-94e1-20f759c0ca3b	TypeError: branches22.map is not a function
+20251009	02:30:55	e97dd725-129f-46ef-9d8a-5f723093cffd	TypeError: branches22.map is not a function
+20251009	02:30:55	e8541e5b-14c3-48b9-99d6-8ac5efea7c6f	TypeError: branches22.map is not a function
+20251009	02:33:01	237fc2e0-5c08-41c3-958f-ecac48ffcdc9	TypeError: branches22.map is not a function
+20251009	02:33:01	0558285b-f8fd-4259-84d9-b4cdbcc4b136	TypeError: branches22.map is not a function
+20251009	02:33:03	863698fc-f208-4107-8b42-223b38ddb3d6	TypeError: branches22.map is not a function
+20251009	02:33:04	c692644e-1ace-4d31-8da6-94d0cec85add	TypeError: branches22.map is not a function
+20251009	02:33:04	238b711c-d55e-4dec-97ab-97ded5ead2ac	TypeError: branches22.map is not a function
+20251009	02:33:04	e42b68c2-99a2-4ac7-9d13-eb96aebb13a5	TypeError: branches22.map is not a function
+20251009	02:34:41	51a6b92f-6c98-4d94-a4c9-ec8e3e51969c	TypeError: branches22.map is not a function
+20251009	02:34:42	7ff7064f-3b2f-4d05-bedb-2a51fc501484	TypeError: branches22.map is not a function
+20251009	02:35:32	9e7d29de-56d0-4e5c-8648-6b19d1773179	ReferenceError: branches is not defined
+20251009	02:35:32	b90beb0d-ccab-4f98-a8b9-f1395d4caa30	ReferenceError: branches is not defined
+20251009	02:35:40	8b2387fe-8f1f-4187-8b24-c65e85146da0	ReferenceError: branches is not defined
+20251009	02:35:41	43a4bf87-600e-4e4b-ba97-82a7a013b85d	ReferenceError: branches is not defined
+20251009	02:35:49	c1eeb1f4-9c7a-4699-913f-6cd584cce4fb	ReferenceError: branches is not defined
+20251009	02:35:49	2f2bbbc9-06e2-4271-b9a4-b17f8c82887f	ReferenceError: branches is not defined
+20251009	02:38:23	809b754f-4614-4d85-a7d5-916c8eaf3911	ReferenceError: branches is not defined
+20251009	02:38:23	60921602-8ab7-4504-a25c-4d047175521f	ReferenceError: branches is not defined
+20251009	02:38:23	d25e1d41-d769-4237-8347-0e90f4f5f3c1	ReferenceError: branches is not defined
+20251009	02:38:23	13dd5381-75a1-4107-9afb-db662cf039fc	ReferenceError: branches is not defined
+20251009	15:09:35	0ea8e17c-0e8a-49db-80cb-62f168b1ad0e	SyntaxError: Bad control character in string literal in JSON at position 261 (line 8 column 52)
+20251009	15:21:55	9e6799d7-d862-49f5-b630-b7dc997ae4a7	TypeError: getMonthYear is not a function
+20251009	15:41:42	a80b1c18-4453-40a4-8c73-7853dc6d8d91	TypeError: Cannot read properties of undefined (reading 'setHours')
+20251009	16:37:46	a39d5ce2-13ac-4aa0-a111-503e10db0b9d	SyntaxError: Expected double-quoted property name in JSON at position 30 (line 4 column 1)
+20251009	16:40:38	6cfd79a8-556c-4b2f-b9f6-5cc2ad06f9c7	Error: Cannot set headers after they are sent to the client
+20251009	16:43:32	accb25c4-6d36-435a-87f3-002a7eab3edd	Error: Cannot set headers after they are sent to the client
+20251009	17:43:50	0ecb8c6d-7844-4d3f-8260-963ba435be23	SyntaxError: Expected double-quoted property name in JSON at position 116 (line 13 column 1)
+20251009	22:32:03	6d7594ee-6abb-43a5-8a1c-2cdae7111011	Error: Cannot set headers after they are sent to the client
+20251009	22:50:08	b2fa5274-0307-4c13-ac38-838ac087623a	SyntaxError: Expected ',' or '}' after property value in JSON at position 218 (line 8 column 5)
+20251011	21:02:00	3c923e0f-4936-40a9-8cfb-869fde819347	SyntaxError: Expected ':' after property name in JSON at position 60 (line 16 column 19)
+20251011	21:02:38	a6033432-846b-4ef2-b9c9-ea0108f1d5be	SyntaxError: Expected ':' after property name in JSON at position 60 (line 16 column 19)
+20251012	20:19:55	96b654d4-8251-40d7-86ab-be4ecca47a8c	SyntaxError: Unexpected non-whitespace character after JSON at position 302 (line 14 column 1)
+20251012	20:20:02	a4178aad-d233-44f5-ba69-04ca10ead0a5	SyntaxError: Unexpected non-whitespace character after JSON at position 298 (line 12 column 2)
+20251012	20:20:15	5a499b89-caf9-4e57-bbcd-7585d13a03cc	SyntaxError: Expected double-quoted property name in JSON at position 92 (line 12 column 1)
+20251012	22:13:37	1d7a4a60-31b4-472a-9830-5e7fd76633c8	ReferenceError: approveRequest is not defined
+20251012	22:14:10	d0897e1a-534f-4459-9ca4-0dce97c020d0	ReferenceError: actionType is not defined
+20251012	22:15:43	2da5aaba-621d-4d40-b571-3bf340bf2e0e	ReferenceError: tableName is not defined
+20251012	22:16:36	2e85a85b-3283-460d-854f-c311ecd74899	ReferenceError: payload is not defined
+20251012	22:17:18	c894bc3d-b9e0-4a0e-a97d-09c13851a027	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:23:31
+
+  20 
+  21 switch (request.actionType) {
+  22 case 'create':
+→ 23   await prisma[tableName].create({
+         data: {
+           address: "Naic",
+           branchName: "New-Branch",
+           createdByUser: undefined,
+           updatedByUser: "adminreal",
+       +   createdBy: {
+       +     create: UserCreateWithoutCreatedBranchesInput | UserUncheckedCreateWithoutCreatedBranchesInput,
+       +     connectOrCreate: UserCreateOrConnectWithoutCreatedBranchesInput,
+       +     connect: UserWhereUniqueInput
+       +   }
+         }
+       })
+
+Argument `createdBy` is missing.
+20251012	22:24:21	e99aa6e1-4d40-453a-acac-a64690e8bd78	PrismaClientKnownRequestError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:23:31
+
+  20 
+  21 switch (request.actionType) {
+  22 case 'create':
+→ 23   await prisma[tableName].create(
+Unique constraint failed on the constraint: `branch_branchName_key`
+20251012	22:26:25	f40266c0-164a-44d2-adbf-d287f5cf30e7	PrismaClientValidationError: 
+Invalid `prisma.approvalLog.update()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:39:29
+
+  36     break;
+  37 }
+  38 
+→ 39 return prisma.approvalLog.update({
+       where: {
+         id: "f7f3a2d1-429e-46e6-a6a9-fc92c870da4d"
+       },
+       data: {
+         status: "approved",
+                 ~~~~~~~~~~
+         approvedByUser: "adminreal",
+         responseComment: "Request approved successfully.",
+         updatedAt: new Date("2025-10-12T14:26:25.040Z")
+       }
+     })
+
+Invalid value for argument `status`. Expected ApprovalStatus.
+20251012	22:27:26	1267c9a1-7043-455f-bd5f-4293578c1606	PrismaClientKnownRequestError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:23:31
+
+  20 
+  21 switch (request.actionType) {
+  22 case 'create':
+→ 23   await prisma[tableName].create(
+Unique constraint failed on the constraint: `branch_branchName_key`
+20251012	22:47:20	0de9b412-3ec9-47c9-92a2-7ac34696c69e	Error: Approval request not found
+20251012	22:49:54	4509e5ea-69c3-4083-9aba-675638950baa	ReferenceError: recordId is not defined
+20251013	22:39:35	de45eabb-a99c-4822-9983-c77fe0ce8e23	TypeError: Cannot destructure property 'description' of 'req.body' as it is undefined.
+20251014	00:44:35	616eab72-eeec-4188-b6af-68185a937ed1	ReferenceError: branchIds is not defined
+20251014	00:44:36	a7ac760e-0c38-4e2f-acc6-6167153b6abf	ReferenceError: branchIds is not defined
+20251014	00:44:37	1889c95e-2de0-4e61-a0f0-9eb077b6472e	ReferenceError: branchIds is not defined
+20251014	00:44:37	2ddb6665-b599-4650-ac94-2ae3fad64994	ReferenceError: branchIds is not defined
+20251014	12:49:48	f1b6099a-7bbd-4b36-bd4f-ca6426b8269e	SyntaxError: Unexpected non-whitespace character after JSON at position 97 (line 34 column 1)
+20251014	13:21:18	9a913a79-1df0-4af6-a0a9-41823011b7ef	PrismaClientValidationError: 
+Invalid `prisma.approvalLog.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\userController.js:197:48
+
+  194   where: { OR: [{ username }, { email }] },
+  195 });
+  196 
+→ 197 const pendingUser = await prisma.approvalLog.findFirst({
+        where: {
+          status: "pending",
+          OR: [
+            {
+              payload: {
+                path: [
+                  "username"
+                ],
+                equals: "userapprove"
+              }
+            },
+            {
+              payload: {
+                path: [
+                  "email"
+                ],
+                equals: "userapprove@gmail.com"
+              }
+            }
+          ]
+        }
+      })
+
+Argument `path`: Invalid value provided. Expected String, provided (String).
+20251014	13:21:35	abcb1d31-cace-4241-8815-46d13dd4d27f	PrismaClientValidationError: 
+Invalid `prisma.approvalLog.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\userController.js:197:48
+
+  194   where: { OR: [{ username }, { email }] },
+  195 });
+  196 
+→ 197 const pendingUser = await prisma.approvalLog.findFirst({
+        where: {
+          status: "pending",
+          OR: [
+            {
+              payload: {
+                path: [
+                  "username"
+                ],
+                equals: "userapprove"
+              }
+            },
+            {
+              payload: {
+                path: [
+                  "email"
+                ],
+                equals: "userapprove@gmail.com"
+              }
+            }
+          ]
+        }
+      })
+
+Argument `path`: Invalid value provided. Expected String, provided (String).
+20251014	13:22:39	c598f230-156c-4382-ad35-d7954aa5f732	PrismaClientUnknownRequestError: 
+Invalid `prisma.approvalLog.findFirst()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\userController.js:197:48
+
+  194   where: { OR: [{ username }, { email }] },
+  195 });
+  196 
+→ 197 const pendingUser = await prisma.approvalLog.findFirst(
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Server(MysqlError { code: 3143, message: "Invalid JSON path expression. The error is around character position 1.", state: "42000" })), transient: false })
+20251014	13:24:42	de042d64-fd8f-4020-9a62-5e18a4e17230	ReferenceError: tx is not defined
+20251014	13:32:00	64227e4b-1357-47a5-8724-0ebd0d2924ab	TypeError: Cannot read properties of undefined (reading 'create')
+20251014	13:38:34	8b64b122-186e-4789-b805-6e7e39c34f00	TypeError: Cannot read properties of undefined (reading 'create')
+20251014	13:42:00	7cde092b-4362-4748-a567-f37901c97ac1	TypeError: Cannot read properties of undefined (reading 'create')
+20251014	13:55:16	d3ac6f76-8103-4d97-87eb-2c7304e83f05	PrismaClientKnownRequestError: 
+Invalid `tx.user.create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:27:28
+
+  24 
+  25 switch (action) {
+  26   case "create":
+→ 27     user = await tx.user.create(
+Unique constraint failed on the constraint: `user_username_key`
+20251014	13:59:11	c7e9c931-a405-471b-a6d0-5631c84c5ee3	PrismaClientValidationError: 
+Invalid `tx.user.create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:27:28
+
+  24 
+  25 switch (action) {
+  26   case "create":
+→ 27     user = await tx.user.create({
+           data: {
+             email: "userappr3o8ve@gmail.com",
+             phone: "93034",
+             roles: [
+               "5492f6b8-5e12-45de-a040-d91f394cc7b8",
+               "ab0435a2-e5ed-4d52-a4b0-5f77331364e5"
+             ],
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             hashPwd: "$2b$10$GTuDkAXV0yTPlWdXGnAl/OJoJ16iBjbENr2VByf6oeyjWYdNAJO3K",
+             fullName: "ye",
+             username: "usera3p8prove",
+             createdByUser: "adminreal",
+             updatedByUser: "adminreal",
+             status: "active"
+           }
+         })
+
+Argument `roles`: Invalid value provided. Expected UserRoleCreateNestedManyWithoutUserInput or UserRoleUncheckedCreateNestedManyWithoutUserInput, provided (String, String).
+20251014	15:11:02	d4c85f5f-7416-45d7-b7af-ceb6f3814a73	PrismaClientValidationError: 
+Invalid `tx.user.create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:27:28
+
+  24 
+  25 switch (action) {
+  26   case "create":
+→ 27     user = await tx.user.create({
+           data: {
+             email: "userappr3o8ve@gmail.com",
+             phone: "93034",
+             roles: [
+               "5492f6b8-5e12-45de-a040-d91f394cc7b8",
+               "ab0435a2-e5ed-4d52-a4b0-5f77331364e5"
+             ],
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             hashPwd: "$2b$10$GTuDkAXV0yTPlWdXGnAl/OJoJ16iBjbENr2VByf6oeyjWYdNAJO3K",
+             fullName: "ye",
+             username: "usera3p8prove",
+             createdByUser: "adminreal",
+             updatedByUser: "adminreal",
+             status: "active"
+           }
+         })
+
+Argument `roles`: Invalid value provided. Expected UserRoleCreateNestedManyWithoutUserInput or UserRoleUncheckedCreateNestedManyWithoutUserInput, provided (String, String).
+20251014	15:28:05	8e717a49-3f74-4809-8cd4-9f977fde595b	PrismaClientValidationError: 
+Invalid `tx.user.create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:27:28
+
+  24 
+  25 switch (action) {
+  26   case "create":
+→ 27     user = await tx.user.create({
+           data: {
+             email: "userap4prf3o8ve@gmail.com",
+             phone: "93034",
+             roles: [
+               "5492f6b8-5e12-45de-a040-d91f394cc7b8",
+               "ab0435a2-e5ed-4d52-a4b0-5f77331364e5"
+             ],
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             hashPwd: "$2b$10$Kg9BXGb9NS8tK57Ud4Szueb0bPo8bTzbnMI3NObZO34HkPS/adwTG",
+             fullName: "ye",
+             username: "useraf34p8prove",
+             createdByUser: "adminreal",
+             updatedByUser: "adminreal",
+             status: "active"
+           }
+         })
+
+Argument `roles`: Invalid value provided. Expected UserRoleCreateNestedManyWithoutUserInput or UserRoleUncheckedCreateNestedManyWithoutUserInput, provided (String, String).
+20251014	18:08:24	c2e0cebc-accb-44f3-8737-6a134304c0be	TypeError: getMainBaseRole is not a function
+20251014	19:53:26	0e82e18f-3767-4f79-b354-b781682d8b31	Error: Approval request not found
+20251014	21:54:14	18ccdc8f-9e7c-4698-973b-9173ff824e92	SyntaxError: Unexpected token ']', ..."  },
+    ], 
+    ""... is not valid JSON
+20251014	23:18:19	9210f48d-ff86-46bc-a8ad-0fdac00836b5	SyntaxError: Unexpected end of JSON input
+20251014	23:18:43	ad3086d7-1351-45a3-9fc0-80f0de436295	SyntaxError: Unexpected end of JSON input
+20251014	23:19:33	ea81cee4-6a53-4a3e-9bb7-9812823d00cd	SyntaxError: Unexpected end of JSON input
+20251014	23:23:27	fb130284-333e-46af-a9c5-935e1892b01b	SyntaxError: Unexpected end of JSON input
+20251014	23:47:17	9d9d1355-0c54-4152-b3bb-5aa3672f132f	SyntaxError: Unexpected end of JSON input
+20251014	23:50:59	6f216125-fc84-4436-902e-bc71a5913a54	Error: Cannot set headers after they are sent to the client
+20251015	04:25:33	0888f4d9-140f-4aff-8bf2-912ab72e8deb	SyntaxError: Unexpected end of JSON input
+20251015	12:38:00	30d5ee53-4051-47ea-b4be-b58d1bc82015	Error: Cannot set headers after they are sent to the client
+20251015	12:48:49	c86699f6-4e54-4f57-ab57-ae68bc4de4b4	Error: Cannot set headers after they are sent to the client
+20251015	12:49:17	f9052a01-3d90-46e5-9c29-e04b4b284e36	TypeError: relationsChecker is not a function
+20251015	12:51:36	446a1aa2-1406-4a7a-9097-8a46e6d71d6f	Error: Cannot set headers after they are sent to the client
+20251015	12:55:35	058978a0-7464-47f0-aa76-0063bf34e778	Error: Cannot set headers after they are sent to the client
+20251015	12:56:01	c324b022-5c05-4f0d-bb43-93754afcfca5	PrismaClientKnownRequestError: 
+Invalid `tx.employee.deleteMany()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:223:27
+
+  220 await tx.userEdit.deleteMany({ where: { userId: existingUser.id } });
+  221 
+  222 await tx.customer.deleteMany({ where: { userId: existingUser.id } });
+→ 223 await tx.employee.deleteMany(
+Foreign key constraint violated on the fields: (`employeeId`)
+20251015	13:03:12	2c3549c7-148d-456a-bcd3-bb050c17bc90	PrismaClientKnownRequestError: 
+Invalid `tx.employee.deleteMany()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:223:27
+
+  220 await tx.userEdit.deleteMany({ where: { userId: existingUser.id } });
+  221 
+  222 await tx.customer.deleteMany({ where: { userId: existingUser.id } });
+→ 223 await tx.employee.deleteMany(
+Foreign key constraint violated on the fields: (`employeeId`)
+20251015	13:04:45	723ac28d-9db2-409c-a35b-53dc3a0fab78	PrismaClientKnownRequestError: 
+Invalid `tx.employee.deleteMany()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:223:27
+
+  220 await tx.userEdit.deleteMany({ where: { userId: existingUser.id } });
+  221 
+  222 await tx.customer.deleteMany({ where: { userId: existingUser.id } });
+→ 223 await tx.employee.deleteMany(
+Foreign key constraint violated on the fields: (`employeeId`)
+20251015	17:00:54	14398058-f936-4687-8ba7-dc81b894b7bb	Error: Cannot set headers after they are sent to the client
+20251015	18:54:03	72f85f22-0bdd-4185-8c83-05c2d7d0817d	ReferenceError: truckPlate is not defined
+20251015	18:58:23	837a03e8-3e3f-42fc-8984-100785c0c8c2	Error: Cannot set headers after they are sent to the client
+20251015	23:14:11	e9f79dd6-9745-4078-bfa8-788f61c84b05	Error: Cannot set headers after they are sent to the client
+20251015	23:26:35	72b0afbf-3a17-4843-908a-eabcd4bb4f8f	PrismaClientValidationError: 
+Invalid `tx.user.update()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:106:28
+
+  103 console.log("[edit] User payload:", editPayload);
+  104 
+  105 // Update user
+→ 106 user = await tx.user.update({
+        where: {
+          id: "af3d4199-61a4-40aa-bfc9-6106c142eada"
+        },
+        data: {
+          make: "nissan",
+          ~~~~
+          model: "cocoa",
+          plate: "riz-202",
+          createdByUser: "superkinlie",
+          updatedByUser: "superkinlie",
+      ?   id?: String | StringFieldUpdateOperationsInput,
+      ?   fullName?: String | StringFieldUpdateOperationsInput,
+      ?   username?: String | StringFieldUpdateOperationsInput,
+      ?   phone?: String | StringFieldUpdateOperationsInput,
+      ?   email?: String | StringFieldUpdateOperationsInput,
+      ?   hashPwd?: String | StringFieldUpdateOperationsInput,
+      ?   description?: String | NullableStringFieldUpdateOperationsInput | Null,
+      ?   refreshToken?: String | NullableStringFieldUpdateOperationsInput | Null,
+      ?   status?: AccountStatus | NullableEnumAccountStatusFieldUpdateOperationsInput | Null,
+      ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+      ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+      ?   admin?: AdminUpdateOneWithoutUserNestedInput,
+      ?   customer?: CustomerUpdateOneWithoutUserNestedInput,
+      ?   contractor?: ContractorUpdateOneWithoutUserNestedInput,
+      ?   employee?: EmployeeUpdateOneWithoutUserNestedInput,
+      ?   activityLog?: ActivityLogUpdateManyWithoutUserNestedInput,
+      ?   roles?: UserRoleUpdateManyWithoutUserNestedInput,
+      ?   branches?: UserBranchUpdateManyWithoutUserNestedInput,
+      ?   createdUsers?: UserUpdateManyWithoutCreatedByNestedInput,
+      ?   updatedUsers?: UserUpdateManyWithoutUpdatedByNestedInput,
+      ?   createdRole?: RoleUpdateManyWithoutCreatedByNestedInput,
+      ?   createdBranches?: BranchUpdateManyWithoutCreatedByNestedInput,
+      ?   createdTrucks?: TruckUpdateManyWithoutCreatedByNestedInput,
+      ?   createdTransactions?: TransactionUpdateManyWithoutCreatedByNestedInput,
+      ?   createdJobOrders?: JobOrderUpdateManyWithoutCreatedByNestedInput,
+      ?   createdContractorPays?: ContractorPayUpdateManyWithoutCreatedByNestedInput,
+      ?   createdEmployeePays?: EmployeePayUpdateManyWithoutCreatedByNestedInput,
+      ?   createdPayComponents?: PayComponentUpdateManyWithoutCreatedByNestedInput,
+      ?   createdEquipments?: EquipmentUpdateManyWithoutCreatedByNestedInput,
+      ?   createdOtherIncomes?: OtherIncomeUpdateManyWithoutCreatedByNestedInput,
+      ?   createdOverheads?: OverheadUpdateManyWithoutCreatedByNestedInput,
+      ?   transferredTruckOwnerships?: TruckOwnershipUpdateManyWithoutTransferredByNestedInput,
+      ?   updatedBranches?: BranchUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedTrucks?: TruckUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedTransactions?: TransactionUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedJobOrders?: JobOrderUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedContractorPays?: ContractorPayUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedEmployeePays?: EmployeePayUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedPayComponents?: PayComponentUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedEquipments?: EquipmentUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedOtherIncomes?: OtherIncomeUpdateManyWithoutUpdatedByNestedInput,
+      ?   updatedOverheads?: OverheadUpdateManyWithoutUpdatedByNestedInput,
+      ?   requestedLogs?: ApprovalLogUpdateManyWithoutRequestedByNestedInput,
+      ?   approvedLogs?: ApprovalLogUpdateManyWithoutApprovedByNestedInput,
+      ?   createdBy?: UserUpdateOneWithoutCreatedUsersNestedInput,
+      ?   updatedBy?: UserUpdateOneWithoutUpdatedUsersNestedInput
+        }
+      })
+
+Unknown argument `make`. Did you mean `email`? Available options are marked with ?.
+20251015	23:29:08	dc1330be-4e12-4c39-aa0c-6eedf4ae29a7	TypeError: Cannot read properties of undefined (reading 'update')
+20251015	23:43:33	7a8692ca-0227-4e8a-aa67-63eb491a847e	Error: Cannot set headers after they are sent to the client
+20251017	18:45:39	1eafb26d-53bf-4220-ac0b-b45495010efd	ReferenceError: err is not defined
+20251017	18:54:57	908bf724-b387-41b7-83d6-fb5d3c8d3a3f	Error: Cannot set headers after they are sent to the client
+20251017	22:28:01	ba599ac6-b1ac-4c50-8747-fa1d1529572a	Error: Cannot set headers after they are sent to the client
+20251017	22:28:20	64c75412-e165-4b80-9db3-6a2a327e9cad	Error: Cannot set headers after they are sent to the client
+20251018	00:07:48	34c9a3b5-1349-4914-a31a-028b3004ae1d	Error: Cannot set headers after they are sent to the client
+20251018	00:27:23	57403317-3e3b-4728-ac7a-439a4b0e604c	Error: Cannot set headers after they are sent to the client
+20251018	17:16:06	df1b1ff4-e6b8-4db7-931f-039193bd6ebc	Error: Cannot set headers after they are sent to the client
+20251018	17:17:47	3248bac0-3148-4b8a-a588-3337c74a40ad	Error: Cannot set headers after they are sent to the client
+20251018	17:17:51	4273d058-d1e6-4609-b081-f68a90b73b46	Error: Cannot set headers after they are sent to the client
+20251018	17:17:53	11adf263-4555-4b06-98ca-58835a2b06df	Error: Cannot set headers after they are sent to the client
+20251018	17:17:54	e803fdb6-8f47-4229-8bcb-eee4bd25c342	Error: Cannot set headers after they are sent to the client
+20251018	17:17:56	658b9482-0d68-4e7c-941e-260aa9a1cc11	Error: Cannot set headers after they are sent to the client
+20251018	17:17:56	dd3cf0de-ee14-4087-80b2-172bd34a7e26	Error: Cannot set headers after they are sent to the client
+20251018	17:17:57	f79e1b68-310a-4f22-9f87-8bb1ccc9d286	Error: Cannot set headers after they are sent to the client
+20251018	17:18:14	7073732a-6694-4700-99e4-2c9e14e1b166	Error: Cannot set headers after they are sent to the client
+20251018	17:25:44	45620909-b025-451f-950d-4e9e83f8da4c	Error: Cannot set headers after they are sent to the client
+20251018	17:26:18	0654346b-dbc2-455b-b74c-6a526d177681	Error: Cannot set headers after they are sent to the client
+20251018	17:26:21	c1fc5836-6c22-4d61-8032-6c3509784bc6	Error: Cannot set headers after they are sent to the client
+20251018	18:39:10	40b88500-e295-42fa-8228-6138e38b5180	Error: A truck with this plate number already exists
+20251018	18:39:35	7086168a-899c-456f-bbb5-9588b3b26285	PrismaClientValidationError: 
+Invalid `tx.jobOrder.update()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:485:36
+
+  482 } = payload;
+  483 
+  484 // Update job order
+→ 485 jobOrder = await tx.jobOrder.update({
+        where: {
+          id: "7c6fa5c5-0066-4272-bc23-453977ebbeca"
+        },
+        data: {
+          jobOrderId: "7c6fa5c5-0066-4272-bc23-453977ebbeca",
+          ~~~~~~~~~~
+          updateData: {
+            labor: null,
+            truckId: "e93b91c5-9bb1-431a-ab0e-8f84c55fda78",
+            branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+            customerId: "f4eaa47b-37bd-4fa7-82d6-f557d1e4efce",
+            description: "Welding and painting",
+            contractorId: "16ce727c-06f5-44c2-abae-6bf67b2bb874"
+          },
+          updatedByUser: "superkinlie",
+      ?   id?: String | StringFieldUpdateOperationsInput,
+      ?   jobOrderCode?: String | StringFieldUpdateOperationsInput,
+      ?   status?: OrderStatus | EnumOrderStatusFieldUpdateOperationsInput,
+      ?   description?: String | StringFieldUpdateOperationsInput,
+      ?   labor?: Decimal | NullableDecimalFieldUpdateOperationsInput | Null,
+      ?   contractorPercent?: Decimal | NullableDecimalFieldUpdateOperationsInput | Null,
+      ?   completedAt?: DateTime | NullableDateTimeFieldUpdateOperationsInput | Null,
+      ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+      ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+      ?   transactions?: TransactionUpdateManyWithoutJobOrderNestedInput,
+      ?   materials?: MaterialUpdateManyWithoutJobOrderNestedInput,
+      ?   truck?: TruckUpdateOneRequiredWithoutJobOrdersNestedInput,
+      ?   branch?: BranchUpdateOneRequiredWithoutJobOrdersNestedInput,
+      ?   contractor?: ContractorUpdateOneWithoutJobOrdersNestedInput,
+      ?   customer?: CustomerUpdateOneRequiredWithoutJobOrdersNestedInput,
+      ?   createdBy?: UserUpdateOneRequiredWithoutCreatedJobOrdersNestedInput,
+      ?   updatedBy?: UserUpdateOneRequiredWithoutUpdatedJobOrdersNestedInput
+        },
+        include: {
+          truck: {
+            select: {
+              id: true,
+              plate: true,
+              model: true,
+              make: true
+            }
+          },
+          customer: {
+            include: {
+              user: {
+                select: {
+                  username: true,
+                  fullName: true
+                }
+              }
+            }
+          },
+          contractor: false,
+          branch: {
+            select: {
+              id: true,
+              branchName: true
+            }
+          }
+        }
+      })
+
+Unknown argument `jobOrderId`. Did you mean `jobOrderCode`? Available options are marked with ?.
+20251018	18:42:03	83b94723-1f47-4146-a893-3c307b255232	PrismaClientValidationError: 
+Invalid `tx.jobOrder.update()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\services\approvalService.js:485:36
+
+  482 } = payload;
+  483 
+  484 // Update job order
+→ 485 jobOrder = await tx.jobOrder.update({
+        where: {
+          id: "7c6fa5c5-0066-4272-bc23-453977ebbeca"
+        },
+        data: {
+          jobOrderId: "7c6fa5c5-0066-4272-bc23-453977ebbeca",
+          ~~~~~~~~~~
+          updateData: {
+            labor: null,
+            truckId: "e93b91c5-9bb1-431a-ab0e-8f84c55fda78",
+            branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+            customerId: "f4eaa47b-37bd-4fa7-82d6-f557d1e4efce",
+            description: "Welding and painting",
+            contractorId: "16ce727c-06f5-44c2-abae-6bf67b2bb874"
+          },
+          updatedByUser: "superkinlie",
+      ?   id?: String | StringFieldUpdateOperationsInput,
+      ?   jobOrderCode?: String | StringFieldUpdateOperationsInput,
+      ?   status?: OrderStatus | EnumOrderStatusFieldUpdateOperationsInput,
+      ?   description?: String | StringFieldUpdateOperationsInput,
+      ?   labor?: Decimal | NullableDecimalFieldUpdateOperationsInput | Null,
+      ?   contractorPercent?: Decimal | NullableDecimalFieldUpdateOperationsInput | Null,
+      ?   completedAt?: DateTime | NullableDateTimeFieldUpdateOperationsInput | Null,
+      ?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+      ?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+      ?   transactions?: TransactionUpdateManyWithoutJobOrderNestedInput,
+      ?   materials?: MaterialUpdateManyWithoutJobOrderNestedInput,
+      ?   truck?: TruckUpdateOneRequiredWithoutJobOrdersNestedInput,
+      ?   branch?: BranchUpdateOneRequiredWithoutJobOrdersNestedInput,
+      ?   contractor?: ContractorUpdateOneWithoutJobOrdersNestedInput,
+      ?   customer?: CustomerUpdateOneRequiredWithoutJobOrdersNestedInput,
+      ?   createdBy?: UserUpdateOneRequiredWithoutCreatedJobOrdersNestedInput,
+      ?   updatedBy?: UserUpdateOneRequiredWithoutUpdatedJobOrdersNestedInput
+        },
+        include: {
+          truck: {
+            select: {
+              id: true,
+              plate: true,
+              model: true,
+              make: true
+            }
+          },
+          customer: {
+            include: {
+              user: {
+                select: {
+                  username: true,
+                  fullName: true
+                }
+              }
+            }
+          },
+          contractor: false,
+          branch: {
+            select: {
+              id: true,
+              branchName: true
+            }
+          }
+        }
+      })
+
+Unknown argument `jobOrderId`. Did you mean `jobOrderCode`? Available options are marked with ?.
+20251018	20:34:29	862fc2be-3fe1-4172-92e4-a79e79d0763f	TypeError: checkPendingApproval is not a function
+20251018	20:47:44	2ede344e-7bb6-4ea1-9762-05422573a0f1	ReferenceError: checkPendingApproval is not defined
+20251018	23:29:37	bcf26460-686a-4e98-9951-550f042b4519	ReferenceError: jobOrdepayload is not defined
+20251018	23:30:04	dbd82edf-6d13-4a2c-99b3-e8fef6e51a0b	ReferenceError: Cannot access 'jobOrderId' before initialization
+20251019	15:55:10	8f7c58ae-fe40-47be-a5f2-cc59f7f43ada	Error: Approval request not found
+20251019	21:30:49	0a32b95b-3028-45de-b755-74adb4a87449	TypeError: Cannot read properties of undefined (reading 'trim')
+20251020	00:50:06	210dede4-5a84-4813-bbe6-de98ca7a1b70	PrismaClientValidationError: 
+Invalid `prisma.truck.findUnique()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\controllers\admin\truckController.js:225:36
+
+  222 if (!req?.params?.id)
+  223   return res.status(400).json({ message: "ID is required" });
+  224 
+→ 225 const truck = await prisma.truck.findUnique({
+        where: {
+          id: "29d777d2-f983-429d-bd70-689c0258f191"
+        },
+        include: {
+          jobOrders: true,
+          truckOwnership: true,
+          ~~~~~~~~~~~~~~
+      ?   owners?: true,
+      ?   createdBy?: true,
+      ?   updatedBy?: true
+        }
+      })
+
+Unknown field `truckOwnership` for include statement on model `Truck`. Available options are marked with ?.
+20251020	00:51:23	1a9acd45-1b10-48a5-9f29-c1f6fde24817	Error: Cannot set headers after they are sent to the client
+20251022	19:18:21	0eb563b4-b47f-4bee-a8bf-b51b98b14e1f	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:945:41
+
+  942 default:
+  943     switch (request.actionType) {
+  944         case 'create':
+→ 945         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:22:47	c22af105-7bbf-492b-8758-086a5f1faa57	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:948:41
+
+  945 default:
+  946     switch (request.actionType) {
+  947         case 'create':
+→ 948         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:22:55	1f62ccff-3865-4515-8bd9-03803d4b2705	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:948:41
+
+  945 default:
+  946     switch (request.actionType) {
+  947         case 'create':
+→ 948         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:23:15	93b157a0-3589-4a42-bc45-2723351c278c	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:948:41
+
+  945 default:
+  946     switch (request.actionType) {
+  947         case 'create':
+→ 948         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:26:41	69043134-3836-4765-9d5e-751d7e4efe1e	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:945:41
+
+  942 default:
+  943     switch (request.actionType) {
+  944         case 'create':
+→ 945         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:27:01	63fb1e73-4eac-4940-bdc7-a6c2d427d63c	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:948:41
+
+  945 default:
+  946     switch (request.actionType) {
+  947         case 'create':
+→ 948         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:30:15	907d9ccd-fc4a-4374-9748-f211c7a77ae2	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:948:41
+
+  945 default:
+  946     switch (request.actionType) {
+  947         case 'create':
+→ 948         await prisma[tableName].create({
+                data: {
+                  userId: "ce83d795-b662-45bc-9141-25e0adcb12d2",
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie",
+              +   employee: {
+              +     create: EmployeeCreateWithoutEmployeePayInput | EmployeeUncheckedCreateWithoutEmployeePayInput,
+              +     connectOrCreate: EmployeeCreateOrConnectWithoutEmployeePayInput,
+              +     connect: EmployeeWhereUniqueInput
+              +   }
+                }
+              })
+
+Argument `employee` is missing.
+20251022	19:34:10	888eb203-d51d-4fb5-89d8-3f20caa321e6	PrismaClientValidationError: 
+Invalid `prisma[tableName].create()` invocation in
+C:\Users\Huawei\Desktop\projects\vilsons-backend\utils\services\approvalService.js:945:41
+
+  942 default:
+  943     switch (request.actionType) {
+  944         case 'create':
+→ 945         await prisma[tableName].create({
+                data: {
+                  branchId: "a70c3153-7522-4832-b3e4-bdbbf849e319",
+                  employeeId: "1a7582ac-3379-4756-8412-72846f63b2c6",
+                  payComponents: [
+                    {
+                      amount: 8900,
+                      componentId: "280ff321-2289-43e3-8af9-96d0931e8e59"
+                    }
+                  ],
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  createdByUser: "superkinlie",
+                  updatedByUser: "superkinlie"
+                }
+              })
+
+Argument `payComponents`: Invalid value provided. Expected PayComponentUncheckedCreateNestedManyWithoutEmployeePayInput, provided (Object).
+20251022	21:08:00	4c1b6184-aa85-473f-8053-fe2a82772fff	Error: Employee with specified userId not found
+20251022	21:10:47	0f0bd295-c9db-4c8a-a1e7-4f9fc9fb39e6	TypeError: Cannot read properties of undefined (reading 'id')
+20251022	21:11:01	581158a6-66ec-4bd2-8d30-51fda14fbde2	TypeError: Cannot read properties of undefined (reading 'id')
+20251023	23:15:59	6fcb8f8f-643f-45c8-8378-99c5e25dcaec	Error: Cannot set headers after they are sent to the client
+20251023	23:37:55	8f21c2c6-834d-4c66-a59c-1082d2786402	Error: Cannot set headers after they are sent to the client
+20251023	23:46:37	2062254e-9c01-4c6c-8063-e15350f0a66b	Error: Cannot set headers after they are sent to the client
+20251023	23:48:02	98c4ccbb-1671-4342-a20c-e745c1a6835c	Error: Cannot set headers after they are sent to the client
+20251023	23:48:15	0d5c7557-fbd0-4c8f-8343-e93612a02d6b	Error: Cannot set headers after they are sent to the client
+20251023	23:49:04	97a13494-ee02-4fab-b658-ebd09f2286fc	Error: Cannot set headers after they are sent to the client
+20251023	23:49:06	48902246-d331-4661-892b-9d04cb56b336	Error: Cannot set headers after they are sent to the client
+20251023	23:49:16	6eeaf6e0-ce97-4958-a825-508ca9fd20e6	Error: Cannot set headers after they are sent to the client
+20251023	23:52:36	fc5e9bd2-fa5a-48f8-9025-df992414e7d5	Error: Cannot set headers after they are sent to the client
+20251023	23:53:50	3d9122da-fe01-4fdf-979c-577aad3b16ff	Error: Cannot set headers after they are sent to the client
+20251023	23:55:52	8f3a0695-fae9-440a-adc3-eb814b5fe171	Error: Cannot set headers after they are sent to the client
+20251023	23:56:00	ec8e2ba1-08e1-43ff-bc55-6c80d77d4a8f	Error: Cannot set headers after they are sent to the client
+20251023	23:56:11	62524cf1-8771-4a0d-8bd9-2a756469efb6	Error: Cannot set headers after they are sent to the client
+20251023	23:56:16	2b4ba2c0-fdf6-4112-9faf-758e3689645c	Error: Cannot set headers after they are sent to the client
+20251023	23:57:53	4778aa14-ec31-46f1-bebb-c7e396ed90ca	Error: Cannot set headers after they are sent to the client
+20251024	00:09:33	ac092aa2-705a-40e6-962c-6fe9d5461764	Error: Cannot set headers after they are sent to the client
+20251025	12:23:51	e9e0e262-7920-4f65-8527-4ae7a4ef26dd	TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+20251025	13:00:51	18a76814-2773-43db-9496-fbb5b57fdbd4	ReferenceError: getMainBaseRole is not defined
+20251025	15:49:50	a4d3b345-2ace-4fab-8d27-cd1db4dc8288	TypeError: roles.map is not a function
+20251025	15:51:05	8b865e03-f150-4919-b07f-5a42f465ce24	TypeError: roles.map is not a function
+20251025	20:39:51	b552fa42-049a-4187-8a2d-352a09d14579	TypeError: Cannot destructure property 'name' of 'req.body' as it is undefined.
+20251025	20:40:36	a68b73b1-5f5d-49b3-87e3-fe5309a9286f	TypeError: Cannot destructure property 'name' of 'req.body' as it is undefined.
+20251025	20:59:28	120de91d-e931-488e-a888-a9f99f6862b1	MulterError: Unexpected field
+20251025	22:12:38	4d990866-05dc-4a5f-9a7c-6281fd1767e4	ReferenceError: parseArrayFields is not defined
+20251025	22:29:30	f06509cd-4ad7-4067-992c-43674e391e76	ReferenceError: beforeImages is not defined
+20251025	22:38:52	fcbe4b59-4507-4350-a3db-05ba00618665	Error: Invalid JSON array format for field "roles".
+20251026	01:13:24	4b5677c8-20b6-4666-8a24-1b4cbe3f0742	Error: Invalid JSON array format for field "materials".
+20251026	01:14:42	e078ebb8-437a-46c7-b849-1258e3363288	Error: Invalid JSON array format for field "materials".
+20251026	01:15:51	dc1d4e9c-8754-4f97-b3a2-2f35cb470332	Error: Invalid JSON array format for field "materials".
+20251026	01:17:36	cd5518c5-2863-40f3-b01c-f16602224930	Error: Invalid JSON array format for field "materials".
+20251026	17:56:07	f3315be0-4119-40d6-b043-293fb0e60daf	Error: Only image files are allowed
+20251026	17:56:14	d0083ae2-a5e9-478b-8c88-b97eacf2c25f	Error: Only image files are allowed
+20251026	21:25:05	e8d658f1-416c-45a0-a730-f64d37c7bf1e	ReferenceError: image is not defined
+20251026	22:05:41	36eef879-a8cb-42c7-bed8-0557a2dd4683	Error: Approval request not found
+20251026	22:06:27	c5cb7841-9b49-4f6c-a643-7d67e4ad7cdf	TypeError: Cannot read properties of undefined (reading 'image')
+20251026	23:11:07	e65a1fcf-fc22-49b0-b4af-8de8d3257905	Error: Cannot set headers after they are sent to the client
+20251027	00:11:20	938e8bc4-e3d7-4804-8cfc-fbad5c089c11	MulterError: Unexpected field
+20251027	00:13:23	bc5f15e7-fc2c-4423-8549-15c2527ac0fb	MulterError: Unexpected field
+20251027	00:15:18	cfd69aa8-109a-446b-a691-dd7548ef934c	MulterError: Unexpected field
+20251027	00:36:24	906590b4-d58b-4fa3-a1c1-a54363680fcb	Error: Only image files are allowed
+20251027	00:59:51	2170bd31-27f1-4a9f-a9dc-8ff286c6b244	Error: Only image files are allowed
+20251028	21:57:57	4b7405b3-f72e-45fb-a962-be9db50c9b28	SyntaxError: Expected ',' or '}' after property value in JSON at position 28 (line 2 column 26)
+20251122	20:05:24	073d31c8-7e03-44f8-9bc7-62c83c84ddda	TypeError: Cannot read properties of undefined (reading 'map')
+20251129	21:54:09	c61b57bf-9f75-4197-8d93-35859dbbdbdf	ReferenceError: name is not defined
+20251129	21:54:10	50da9933-b927-41b7-8894-1d968bb337b4	ReferenceError: name is not defined
+20251129	21:54:15	e784f875-782a-4e61-8f81-fc9b5f56f198	ReferenceError: name is not defined
+20251208	17:32:41	d241a3b5-3f6f-4bc0-9f50-82b23c2c4449	Error: Cannot set headers after they are sent to the client
+20251208	17:32:43	01a18bae-320d-4205-9691-4e073af08cba	Error: Cannot set headers after they are sent to the client
+20251214	10:16:55	ff4710d1-23c9-4386-848b-ced452bc5982	TypeError: Cannot read properties of undefined (reading 'refreshToken')
+20251214	10:16:55	19c788c9-426d-4a6f-b1cd-7fc027e955ef	TypeError: Cannot read properties of undefined (reading 'refreshToken')
+20251214	10:18:10	a3ab8097-cb9e-4844-a480-8d044006e6bf	TypeError: Cannot read properties of undefined (reading 'refreshToken')
+20251214	10:18:10	c89d14f6-8d28-44da-bc19-f3e33af3baac	TypeError: Cannot read properties of undefined (reading 'refreshToken')
+20251214	11:38:28	42012852-aed9-433b-b389-e416dfa068f8	TypeError: res.setHeader is not a function
+20251214	12:36:02	d95b747c-3f17-4a0f-bc70-2481fed354e1	Error: Not allowed by CORS
+20251214	12:36:29	5ae88b8b-ef49-41c8-8a19-c0ccfde3a7e0	Error: Not allowed by CORS
+20251214	12:40:39	ccd642c7-b934-4af7-9e1b-2bfdae2d9978	TypeError: res.setHeader is not a function
+20251214	12:40:39	c59212e8-457c-4de8-b602-9f0c8d9891b4	TypeError: res.setHeader is not a function
+20251214	12:40:39	5fea7e6f-61a9-4a53-8ced-910eb79dffe2	TypeError: res.setHeader is not a function
+20251214	12:40:39	1e0ff972-e217-4fd9-894a-4ebbc3862300	TypeError: res.setHeader is not a function
+20251214	12:56:17	bc4d5aee-a28b-4e90-95d6-0333c1eb4096	Error: Not allowed by CORS
+20251214	12:56:28	be45509f-3411-40d9-bdd9-4fcd7f669891	Error: Not allowed by CORS
+20251214	12:57:31	84a281eb-8557-4b6e-8555-cda80cca7f42	Error: Not allowed by CORS
+20251214	12:57:43	2ef3bf04-b023-4207-93a5-9f4e3f4c52e8	Error: Not allowed by CORS
+20251214	12:59:51	7e2da372-659f-4c9d-a452-afb20d9a0594	Error: Not allowed by CORS
+20251214	12:59:51	55031053-ab46-432a-9cd0-b2e5229a6524	Error: Not allowed by CORS
+20251214	12:59:51	088810fd-fb50-475d-8c01-770ed4724e55	Error: Not allowed by CORS
+20251214	12:59:51	e1a53d8c-4232-46c1-8bbe-25d7e6c08c54	Error: Not allowed by CORS
+20251214	13:00:36	238d9a79-51d1-48ec-a58c-478adfedee39	Error: Not allowed by CORS
+20251214	13:00:39	2f1ec7c5-4231-4fb9-b6ac-b0e3863f1f66	Error: Not allowed by CORS
+20251214	13:05:51	48ba15e7-3967-4703-b960-c452a512119c	Error: Not allowed by CORS
+20251214	13:19:36	4481924f-96af-4b4c-a4fa-694b37d9304b	Error: Not allowed by CORS
+20251214	13:19:45	fc9823db-d5e9-472a-ae39-b18de4027eeb	Error: Not allowed by CORS
+20251214	13:20:32	cb6ab5de-3b3c-49ff-a283-1b420f6cb0c1	Error: Not allowed by CORS

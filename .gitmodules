@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/KinlieVenice/BACKEND-VILSONS.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/JhorizRodel-Aquino/Vilsons-Frontend.git
