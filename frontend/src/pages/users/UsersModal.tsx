@@ -39,7 +39,7 @@ const formSchemaGeneral: ValidationSchema = {
     name: { required: true },
     username: { required: true },
     email: { label: "Email Address" },
-    phone: { required: true, label: "Phone Number" },
+    phone: { required: true, label: "Phone Number", maxLength: 13 },
     roles: { required: true, label: "role", minLength: 1 },
     remarks: { required: true }
 };
@@ -467,9 +467,7 @@ export default function UsersModal({
                                     <Field.Number
                                         id="phone"
                                         label="Phone Number"
-                                        noSpinner
-                                        min={0}
-                                        max={9999999999}
+                                        noSpinner={true}
                                         value={formData.phone}
                                         onChange={(e) =>
                                             setFormData({ ...formData, phone: Number(e.target.value) })

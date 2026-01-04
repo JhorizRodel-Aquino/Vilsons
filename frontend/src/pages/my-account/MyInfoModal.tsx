@@ -15,7 +15,7 @@ export type FormData = {
 const formSchema: ValidationSchema = {
     name: { required: true, label: "Full Name" },
     email: { label: "Email Address" },
-    phone: { required: true, label: "Phone Number" },
+    phone: { required: true, label: "Phone Number", maxLength: 13 },
 };
 
 type MyInfoModalProps = {

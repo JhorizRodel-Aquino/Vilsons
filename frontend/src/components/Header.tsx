@@ -18,7 +18,7 @@ function Header({toggleSidebar}: {toggleSidebar: () => void}) {
 
                     <div className='flex gap-[10px]'>
                         {/* <Icon name='bell' /> */}
-                        <button className='cursor-pointer' onClick={() => setShowConfirmModal(true)}><Icon name='user' /></button>
+                        <button className='cursor-pointer' onClick={() => setShowConfirmModal(true)}><Icon name='logout' /></button>
                     </div>
                 </div>
             </header>

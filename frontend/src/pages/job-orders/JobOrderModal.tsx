@@ -88,7 +88,7 @@ const formSchemaOldTruck: ValidationSchema = {
 const formSchemaNewCustomer: ValidationSchema = {
     name: { required: true, label: 'Customer Name' },
     username: { required: true, label: 'Customer Username' },
-    phone: { required: true, label: 'Customer Phone Number' },
+    phone: { required: true, label: 'Customer Phone Number', maxLength: 13 },
     email: { label: 'Customer Email Address' },
 };
 

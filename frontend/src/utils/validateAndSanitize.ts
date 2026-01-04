@@ -185,6 +185,11 @@ export default function validateAndSanitize(
       continue;
     }
 
+    if (rules.maxLength && typeof value === "number" && value.toString().length > rules.maxLength) {
+      errors[key] = `${label} must not exceed ${rules.maxLength} characters.`;
+      continue;
+    }
+
     if (rules.pattern && !rules.pattern.test(value)) {
       errors[key] = `${label} has an invalid format.`;
       continue;
