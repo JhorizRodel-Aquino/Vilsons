@@ -58,7 +58,7 @@ export default function UserPasswordModal({ userId, setShowModal }: UserPassword
                 <>
                     <form onSubmit={handleSubmit} className="card modal gap-[20px]">
                         <div className="text-xl flex justify-between items-center">
-                            <h2 className="font-bold">Add Equipment</h2>
+                            <h2 className="font-bold">Change User Password</h2>
                             <Button.X onClick={closeModal} disabled={loading} />
                         </div>
 

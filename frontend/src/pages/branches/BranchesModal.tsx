@@ -43,6 +43,7 @@ export default function BranchesModal({ setShowModal, onSuccess, action, presetD
         const formattedData = {
             address: validatedData.address,
             name: validatedData.branch,
+            remarks: validatedData.remarks,
         }
 
         if (!isValid) return;
@@ -50,7 +51,7 @@ export default function BranchesModal({ setShowModal, onSuccess, action, presetD
         const success = action === 'create' ? await postData(formattedData) : await putData(id, formattedData)
         if (success) {
             onSuccess(); // trigger reload in parent
-            setFormData({ branch: "", address: "" }); // reset form
+            setFormData({ branch: "", address: "", remarks: "" }); // reset form
             closeModal();
 
             invalidateCache(`/api/approval-logs`);

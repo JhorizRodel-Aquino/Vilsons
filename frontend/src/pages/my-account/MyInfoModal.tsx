@@ -60,7 +60,7 @@ export default function MyInfoModal({ setShowModal, onSuccess, presetData }: MyI
                 <>
                     <form onSubmit={handleSubmit} className="card modal gap-[20px]">
                         <div className="text-xl flex justify-between items-center">
-                            <h2 className="font-bold">Add Equipment</h2>
+                            <h2 className="font-bold">Edit Information</h2>
                             <Button.X onClick={closeModal} disabled={loading} />
                         </div>
 

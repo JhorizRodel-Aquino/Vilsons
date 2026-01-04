@@ -135,6 +135,7 @@ export default function UsersTable({ setPresetData, reloadFlag, setShowModal, se
             branches: item.branches,
             datetime: item.createdAt,
             options:
+                !item.roles.find((r: Record<string, any>) => r.roleName.toLowerCase() === 'superadmin') &&
                 <Options
                     onEdit={hasPermissions(['edit_user']) ? () => handleEdit(item) : undefined}
                     onDelete={hasPermissions(['delete_user']) ? () => { setSelectedId(item.id); setShowDeleteModal(true) } : undefined}
