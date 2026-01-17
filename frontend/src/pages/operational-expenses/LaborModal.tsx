@@ -387,7 +387,7 @@ export default function LaborModal({ branchOptions, setShowModal, onSuccess, act
                                                         const selectedValue = e.target.value;
                                                         const selectedComponent = componentsOptions.find(comp => comp.value === selectedValue);
 
-                                                        if (selectedComponent?.label === 'New Component') {
+                                                        if (selectedComponent?.label === '+ New Component') {
                                                             // Run addComponent function for new component
                                                             addComponent();
                                                         } else {
