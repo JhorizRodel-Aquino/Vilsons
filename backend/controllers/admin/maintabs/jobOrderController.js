@@ -283,7 +283,7 @@ const createJobOrder = async (req, res) => {
       else if (name && phone && username) {
         console.log('Creating new customer with:', { name, email, phone, username });
         
-        const roleId = await roleIdFinder(ROLES_LIST.CUSTOMER);
+        const roleId = await roleIdFinder(ROLES_LIST.JO_CUSTOMER);
 
         const newUser = await tx.user.create({
           data: {
@@ -799,7 +799,7 @@ const deleteJobOrder = async (req, res) => {
       const hasRelations = relationsChecker(jobOrder, excludedKeys);
 
       if (hasRelations) {
-        throw new Error("Job order cannot be deleted as it's connected to other records"); 
+        return res.status(400).json({ message: "Job order cannot be deleted as it's connected to other records" });
       }
       
       // Delete materials first (due to foreign key constraints)

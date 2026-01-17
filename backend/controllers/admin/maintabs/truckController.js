@@ -267,8 +267,12 @@ const deleteTruck = async (req, res) => {
 
   const truck = await prisma.truck.findUnique({ 
     where: { id: req.params.id },
-    include: { jobOrders: true, owners: true }
+    include: { jobOrders: true }
    });
+
+   await prisma.truckOwnership.deleteMany({
+    where: { truckId: truck.id }
+   })
 
   if (!truck) {
     return res.status(404).json({ message: "Truck not found" });
@@ -280,7 +284,7 @@ const deleteTruck = async (req, res) => {
     const result = await prisma.$transaction(async (tx) => {
       const hasRelations = relationsChecker(truck);
 
-      if (hasRelations) return res.status(400).json({ message: "Truck is connected to other tables"})
+      if (hasRelations) return res.status(400).json({ message: "Cannot be deleted, truck is connected to other records"})
       
       const deletedTruck = needsApproval
         ? await requestApproval( "truck", truck.id, "delete", truck, req.username)
@@ -295,8 +299,8 @@ const deleteTruck = async (req, res) => {
     await logActivity(
       req.username,
       needsApproval
-        ? `FOR APPROVAL: ${req.username} edited Truck ${truckData.plate}`
-        : `${req.username} edited Truck ${truckData.plate}`,
+        ? `FOR APPROVAL: ${req.username} edited Truck ${truck.plate}`
+        : `${req.username} edited Truck ${truck.plate}`,
     );
     return res
       .status(201)
@@ -383,8 +387,8 @@ const getAllTrucks = async (req, res) => {
       data: {
         ...result,
         pagination: { totalItems, totalPages },
-        lastUpdatedAt,
       },
+      lastUpdatedAt,
     });
   } catch (err) {
     return res.status(500).json({ message: err.message });

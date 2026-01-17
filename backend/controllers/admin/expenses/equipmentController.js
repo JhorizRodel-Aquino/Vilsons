@@ -130,7 +130,7 @@ const deleteEquipment = async (req, res) => {
         .status(404)
         .json({ message: `Equipment with ${req.params.id} not found` });
 
-    const needsApproval = true;
+    const needsApproval = req.approval;
     let message;
 
     const equipmentData = {
@@ -215,15 +215,13 @@ const getAllEquipments = async (req, res) => {
       return { equipmentsWithTotal, totalEquipmentsAmount, lastUpdatedAt };
     });
 
-    return res
-      .status(201)
-      .json({
-        data: {
-          equipments: result.equipmentsWithTotal,
-          totalEquipmentsAmount: result.totalEquipmentsAmount,
-          lastUpdatedAt: result.lastUpdatedAt
-        },
-      });
+    return res.status(201).json({
+      data: {
+        equipments: result.equipmentsWithTotal,
+        totalEquipmentsAmount: result.totalEquipmentsAmount,
+      },
+      lastUpdatedAt: result.lastUpdatedAt,
+    });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }

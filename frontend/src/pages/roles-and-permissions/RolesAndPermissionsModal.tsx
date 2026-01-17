@@ -210,6 +210,7 @@ export default function RolesAndPermissionsModal({
                                     <Field.Text
                                         id="roleName"
                                         label="Role"
+                                        readonly={["admin", "customer", "contractor", "employee"].includes(role.roleName) && action === "edit"}
                                         value={role.roleName}
                                         onChange={(e) =>
                                             setRole({

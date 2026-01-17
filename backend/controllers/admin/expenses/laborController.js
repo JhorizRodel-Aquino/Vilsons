@@ -2,6 +2,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const { getMonthYear } = require("../../../utils/filters/monthYearFilter");
 const { branchFilter } = require("../../../utils/filters/branchFilter"); 
+const { getLastUpdatedAt } = require("../../../utils/services/lastUpdatedService");
+
 
 const getAllLaborPays = async (req, res) => {
   const search = req?.query?.search?.trim()?.replace(/^["']|["']$/g, "");
@@ -171,6 +173,29 @@ const getAllLaborPays = async (req, res) => {
       branchId: pay.branchId,
     }));
 
+    const employeeLastUpdatedAt = await getLastUpdatedAt(
+      prisma,
+      "employeePay",
+      employeeWhere,
+    );
+
+    const contractorLastUpdatedAt = await getLastUpdatedAt(
+      prisma,
+      "contractorPay",
+      contractorWhere,
+    );
+
+    let lastUpdatedAt = null;
+
+    if (employeeLastUpdatedAt && contractorLastUpdatedAt) {
+      lastUpdatedAt =
+        employeeLastUpdatedAt > contractorLastUpdatedAt
+          ? employeeLastUpdatedAt
+          : contractorLastUpdatedAt;
+    } else {
+      lastUpdatedAt = employeeLastUpdatedAt || contractorLastUpdatedAt;
+    }
+
     // Combine results
     const allLaborPays = [...formattedEmployees, ...formattedContractors];
     const totalAmount = allLaborPays.reduce((sum, lp) => sum + lp.amount, 0);
@@ -180,6 +205,7 @@ const getAllLaborPays = async (req, res) => {
         laborPays: allLaborPays,
         totalAmount,
       },
+      lastUpdatedAt,
     });
   } catch (err) {
     console.error(err);

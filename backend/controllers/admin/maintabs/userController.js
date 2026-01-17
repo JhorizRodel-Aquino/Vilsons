@@ -2825,8 +2825,8 @@ const getAllUsers = async (req, res) => {
       data: {
         ...result,
         pagination: { totalItems, totalPages },
-        lastUpdatedAt,
       },
+      lastUpdatedAt,
     });
   } catch (err) {
     console.error(err.message);

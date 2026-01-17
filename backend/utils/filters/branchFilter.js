@@ -13,9 +13,15 @@ function branchFilter(model, branch, branchIds) {
       case "jobOrder":
         return { branchId: branchValue };
       case "employeePay":
-        return { employee: { user: { branches: { some: { branchId: branchValue } } } } };
+        return {
+          employee: { user: { branches: { some: { branchId: branchValue } } } },
+        };
       case "contractorPay":
-        return { contractor: { user: { branches: { some: { branchId: branchValue } } } } };
+        return {
+          contractor: {
+            user: { branches: { some: { branchId: branchValue } } },
+          },
+        };
       default:
         return {};
     }
@@ -31,9 +37,17 @@ function branchFilter(model, branch, branchIds) {
       case "jobOrder":
         return { branchId: { in: branchIds } };
       case "employeePay":
-        return { employee: { user: { branches: { some: { branchId: { in: branchIds } } } } } };
+        return {
+          employee: {
+            user: { branches: { some: { branchId: { in: branchIds } } } },
+          },
+        };
       case "contractorPay":
-        return { contractor: { user: { branches: { some: { branchId: { in: branchIds } } } } } };
+        return {
+          contractor: {
+            user: { branches: { some: { branchId: { in: branchIds } } } },
+          },
+        };
       default:
         return {};
     }
@@ -42,4 +56,4 @@ function branchFilter(model, branch, branchIds) {
   return {};
 }
 
-module.exports = { branchFilter }
+module.exports = { branchFilter };

@@ -4,6 +4,7 @@ const ROLES_LIST = {
   EMPLOYEE: "_EMPLOYEE_",
   CONTRACTOR: "_CONTRACTOR_",
   CUSTOMER: "_CUSTOMER_",
+  JO_CUSTOMER: "customer"
 };
 
 module.exports = ROLES_LIST;

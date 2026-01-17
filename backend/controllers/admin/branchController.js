@@ -253,7 +253,8 @@ const getAllBranches = async (req, res) => {
     } 
 
     return res.status(201).json({
-      data: { branches, pagination: { totalItems, totalPages }, lastUpdatedAt },
+      data: { branches, pagination: { totalItems, totalPages } },
+      lastUpdatedAt,
     });
   } catch (err) {
     return res.status(500).json({ message: err.message });

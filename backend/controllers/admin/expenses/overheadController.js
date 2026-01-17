@@ -251,7 +251,7 @@ const getAllOverheads = async (req, res) => {
 
     return res
       .status(200)
-      .json({ data: { overheads, totalAmount, lastUpdatedAt } });
+      .json({ data: { overheads, totalAmount }, lastUpdatedAt });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
