@@ -11,7 +11,7 @@ function Header({toggleSidebar}: {toggleSidebar: () => void}) {
             <header className='bg-light py-3 px-6 border-b z-30'>
                 <div className='grid grid-flow-col justify-between text-darker'>
                     <div className='flex gap-[10px]'>
-                        <button onClick={toggleSidebar}><Icon name='menu' /></button>
+                        <button className='cursor-pointer' onClick={toggleSidebar}><Icon name='menu' /></button>
                         {/* <Icon name='chev-left' />
                         <Icon name='chev-right' /> */}
                     </div>

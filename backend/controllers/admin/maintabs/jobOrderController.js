@@ -89,29 +89,30 @@ const createJobOrder = async (req, res) => {
     // Validate new customer data
     if (name && phone && username) {
       const existingUser = await prisma.user.findFirst({
-        where: { OR: [{ username }, { email }] },
+        where: { OR: [{ username }, ...(email ? [{ email }] : [])] },
       });
 
       const pendingUsername = await checkPendingApproval(prisma, 'user', ['username'], username);
       const pendingEmail = await checkPendingApproval(prisma, 'user', ['email'], email);
+      console.log('Existing user:', existingUser);
 
-      if (pendingUsername || pendingEmail) {
-        let message = [];
-        if (
-          (existingUser && existingUser.username === username) ||
-          (pendingUsername && pendingUsername.value === username)
-        )
-          message.push("Username");
-        if (
-          (existingUser && existingUser.email === email) ||
-          (pendingEmail && pendingEmail.value === email)
-        )
-          message.push("Email");
+      let message = [];
+      if (
+        (existingUser && existingUser.username === username) ||
+        (pendingUsername && pendingUsername.value === username)
+      )
+        message.push("Username");
+            console.log("PASOK DITO")
+      if (
+        (existingUser && existingUser.email === email) ||
+        (pendingEmail && pendingEmail.value === email)
+      )
+        message.push("Email");
 
-        return res
-          .status(400)
-          .json({ error: `${message.join(" and ")} already exist` });
-      }
+      return res
+        .status(400)
+        .json({ message: `${message.join(" and ")} already exist` });
+    
     }
 
     // Validate truck exists (if truckId provided)

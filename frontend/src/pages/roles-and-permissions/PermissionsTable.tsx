@@ -31,7 +31,7 @@ export default function PermissionsTable({
     >;
     action: "create" | "edit" | null,
     setShowModal: (action: "create" | "edit" | null) => void,
-    setLastUpdated: (date: string | undefined) => void;
+    setLastUpdated?: (date: string | undefined) => void;
 }) {
 
 
