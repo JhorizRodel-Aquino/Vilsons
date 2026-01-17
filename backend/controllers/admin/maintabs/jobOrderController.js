@@ -97,22 +97,22 @@ const createJobOrder = async (req, res) => {
       console.log('Existing user:', existingUser);
 
       let message = [];
-      if (
-        (existingUser && existingUser.username === username) ||
-        (pendingUsername && pendingUsername.value === username)
-      )
-        message.push("Username");
-            console.log("PASOK DITO")
-      if (
-        (existingUser && existingUser.email === email) ||
-        (pendingEmail && pendingEmail.value === email)
-      )
-        message.push("Email");
+      if (existingUser || pendingUsername || pendingEmail) {
+        if (
+          (existingUser && existingUser.username === username) ||
+          (pendingUsername && pendingUsername.value === username)
+        )
+          message.push("Username");
+        if (
+          (existingUser && existingUser.email === email) ||
+          (pendingEmail && pendingEmail.value === email)
+        )
+          message.push("Email");
 
-      return res
-        .status(400)
-        .json({ message: `${message.join(" and ")} already exist` });
-    
+        return res
+          .status(400)
+          .json({ message: `${message.join(" and ")} already exist` });
+      }
     }
 
     // Validate truck exists (if truckId provided)

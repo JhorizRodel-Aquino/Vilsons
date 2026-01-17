@@ -828,7 +828,7 @@ const handleJobOrderApproval = async (request, updateUser, tx) => {
         customerData.phone &&
         customerData.username
       ) {
-        const roleId = await roleIdFinder(ROLES_LIST.CUSTOMER);
+        const roleId = await roleIdFinder(ROLES_LIST.JO_CUSTOMER);
 
         const newUser = await tx.user.create({
           data: {

@@ -89,7 +89,7 @@ const editEquipment = async (req, res) => {
     const result = await prisma.$transaction(async (tx) => {
       const editedEquipment = needsApproval
         ? await requestApproval('equipment', req.params.id, 'edit', {
-              ...updatedData,
+              ...equipmentData,
               createdByUser: req.username }, req.username, branchId || equipment.branchId)
         : await tx.equipment.update({
             where: { id: equipment.id },
