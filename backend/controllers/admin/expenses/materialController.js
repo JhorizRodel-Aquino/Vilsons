@@ -52,6 +52,7 @@ const getAllMaterials = async (req, res) => {
       const materialsWithTotal = materials.map((m) => ({
         ...m,
         totalAmount: Number(m.price) * Number(m.quantity),
+        totalSellingAmount: Number(m.selling) * Number(m.quantity),
       }));
 
       const totalMaterialsAmount = materials.reduce(
@@ -59,14 +60,24 @@ const getAllMaterials = async (req, res) => {
         0
       );
 
-      return { materialsWithTotal, totalMaterialsAmount };
+      const totalMaterialsSellingAmount = materials.reduce(
+        (sum, m) => sum + Number(m.selling) * Number(m.quantity),
+        0,
+      );
+
+      return {
+        materialsWithTotal,
+        totalMaterialsAmount,
+        totalMaterialsSellingAmount,
+      };
     });
 
     return res.status(200).json({
       data: {
         materials: result.materialsWithTotal,
         totalMaterialsAmount: result.totalMaterialsAmount,
-        lastUpdatedAt: result.lastUpdatedAt
+        totalMaterialsSellingAmount: result.totalMaterialsSellingAmount,
+        lastUpdatedAt: result.lastUpdatedAt,
       },
     });
   } catch (err) {
