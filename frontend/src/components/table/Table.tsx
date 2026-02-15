@@ -18,11 +18,12 @@ type TableProps<T> = {
   columns: Column<T>[];
   rows: T[];
   total?: number;
+  total2?: number;
   className?: string;
   withOptions?: boolean
 };
 
-export default function Table<T>({ columns, rows, total, className, withOptions = false }: TableProps<T>) {
+export default function Table<T>({ columns, rows, total, total2, className, withOptions = false }: TableProps<T>) {
   return (
     <div className={`table-section`}>
       <div className={`table-container main ${className || ''}`}>
@@ -49,6 +50,10 @@ export default function Table<T>({ columns, rows, total, className, withOptions 
 
         {total !== undefined && rows.length > 0 && (
           <TableTotal total={total}/>
+        )}
+
+        {total2 !== undefined && rows.length > 0 && (
+          <TableTotal total={total2}/>
         )}
 
         {rows.length <= 0 && <p className='text-center my-10 italic'>No Records</p>}

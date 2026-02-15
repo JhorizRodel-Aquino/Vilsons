@@ -20,6 +20,7 @@ type MaterialExpense = {
     amount: number;
     totalAmount: number;
     selling: number;
+    totalSelling: number;
 };
 
 const materialExpenseColumns: Column<MaterialExpense>[] = [
@@ -30,6 +31,7 @@ const materialExpenseColumns: Column<MaterialExpense>[] = [
     { key: "amount", label: "Amount", render: (value) => formatPesoFromCents(value as number) },
     { key: "totalAmount", label: "Total Amount", render: (value) => formatPesoFromCents(value as number) },
     { key: "selling", label: "Selling Price", render: (value) => formatPesoFromCents(value as number) },
+    { key: "totalSelling", label: "Total Selling Price", render: (value) => formatPesoFromCents(value as number) },
 ];
 
 export default function MaterialExpensesTable({ setLastUpdated }: { setLastUpdated: (date: string | undefined) => void }) {
@@ -49,7 +51,8 @@ export default function MaterialExpensesTable({ setLastUpdated }: { setLastUpdat
     if (loading) return <Loading />;
 
     const materialExpenseItems = data.data?.materials || [];
-    const total = data.data?.totalMaterialsAmount || 0;
+    const totalAmount = data.data?.totalMaterialsAmount || 0;
+    const totalSelling = data.data?.totalMaterialsSellingAmount || 0
 
     const materialExpenses: MaterialExpense[] = materialExpenseItems.map(
         (item: Record<string, any>) => ({
@@ -59,7 +62,8 @@ export default function MaterialExpensesTable({ setLastUpdated }: { setLastUpdat
             quantity: item.quantity,
             amount: item.price,
             totalAmount: item.totalAmount,
-            selling: item.selling
+            selling: item.selling,
+            totalSelling: item.totalSellingAmount
         })
     );
 
@@ -77,7 +81,7 @@ export default function MaterialExpensesTable({ setLastUpdated }: { setLastUpdat
                 <MonthYearFilter options={options} option={option} setOption={setOption} monthYear={monthYear} year={year} setMonthYear={setMonthYear} setYear={setYear} />
             </TableFilter>
 
-            <Table columns={materialExpenseColumns} rows={materialExpenses} total={total} />
+            <Table columns={materialExpenseColumns} rows={materialExpenses} total={totalAmount} />
 
             {error && <ErrorModal error={error!} closeError={closeError} />}
         </>
